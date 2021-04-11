@@ -1,0 +1,85 @@
+.perfil, .cotizaciones, .productos, .reportes, .recibos, .empleados {
+    background: var(--secondary-color);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+}
+
+.perfil {
+    grid-area: perfil;
+    border-radius: 0 10px 0 0;
+}
+
+.perfil:hover {
+    background: var(--panel-color);
+}
+
+.cotizaciones {
+    grid-area: cotizaciones;
+}
+
+.cotizaciones:hover {
+    background: var(--panel-color);
+}
+
+.productos {
+    grid-area: productos;
+}
+
+.productos:hover {
+    background: var(--panel-color);
+}
+
+.reportes {
+    grid-area: reportes;
+}
+
+.reportes:hover {
+    background: var(--panel-color);
+}
+
+.recibos {
+    grid-area: recibos;
+}
+
+.recibos:hover {
+    background: var(--panel-color);
+}
+
+.empleados {
+    grid-area: empleados;
+    border-radius: 0 0 10px 0;
+    border: none;
+}
+
+.empleados:hover {
+    background: var(--panel-color);
+}
+
+.perfil img {
+    width: 60px;
+}
+
+.cotizaciones img {
+    width: 60px;
+}
+
+.productos img {
+    width: 60px;
+}
+
+.reportes img {
+    width: 60px;
+}
+
+.recibos img {
+    width: 60px;
+}
+
+.empleados img {
+    width: 60px;
+}

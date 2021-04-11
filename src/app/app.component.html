@@ -1,0 +1,8 @@
+<div *ngIf="router.url !== '/login'; else elseBlock" class="main-container">
+    <app-menu></app-menu>
+    <router-outlet></router-outlet>
+    <app-menu-secundario></app-menu-secundario>
+</div>
+<ng-template #elseBlock>
+    <router-outlet></router-outlet>
+</ng-template>
