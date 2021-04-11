@@ -1,0 +1,220 @@
+:root {
+    --primary-color: #29363F;
+    --secondary-color: #6091BE;
+    --font-color: #ffffff;
+    --font-color-2: #E2E2E2;
+    --panel-color: #30495F;
+    --stroke-color: #798187;
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--font-color);
+    font-family: 'Roboto', sans-serif;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.perfil-container {
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color);
+    display: grid;
+    grid-template-columns: 200px 1fr 100px;
+    grid-template-rows: 1fr;
+    grid-template-areas: 'nav main opt';
+}
+
+.nav-container {
+    grid-area: nav;
+    background: var(--panel-color);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-areas: 
+    'perfil'
+    'cotizaciones'
+    'productos'
+    'reportes'
+    'recibos'
+    'empleados';
+}
+
+.perfil, .cotizaciones, .productos, .reportes, .recibos, .empleados {
+    background: var(--secondary-color);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+}
+
+.perfil {
+    grid-area: perfil;
+    border-radius: 0 10px 0 0;
+}
+
+.perfil:hover {
+    background: var(--panel-color);
+}
+
+.cotizaciones {
+    grid-area: cotizaciones;
+}
+
+.cotizaciones:hover {
+    background: var(--panel-color);
+}
+
+.productos {
+    grid-area: productos;
+}
+
+.productos:hover {
+    background: var(--panel-color);
+}
+
+.reportes {
+    grid-area: reportes;
+}
+
+.reportes:hover {
+    background: var(--panel-color);
+}
+
+.recibos {
+    grid-area: recibos;
+}
+
+.recibos:hover {
+    background: var(--panel-color);
+}
+
+.empleados {
+    grid-area: empleados;
+    border-radius: 0 0 10px 0;
+    border: none;
+}
+
+.empleados:hover {
+    background: var(--panel-color);
+}
+
+.perfil img {
+    width: 60px;
+}
+
+.cotizaciones img {
+    width: 60px;
+}
+
+.productos img {
+    width: 60px;
+}
+
+.reportes img {
+    width: 60px;
+}
+
+.recibos img {
+    width: 60px;
+}
+
+.empleados img {
+    width: 60px;
+}
+
+.main-container {
+    grid-area: main;
+    background: var(--panel-color);
+    border-radius: 0 10px 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 100px;
+}
+
+.image-container {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-container img {
+    width: 128px;
+    height: 128px;
+}
+
+.info-container {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.info-container p {
+    font-size: 20px;
+}
+
+.editar-perfil {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.editar-perfil button {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    background: var(--secondary-color);
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.editar-perfil button:hover {
+    background: #537ca3;
+}
+
+.editar-perfil button:active {
+    background: #476b8d;
+}
+
+.editar-perfil button img {
+    width: 60%;
+    height: 60%;
+}
+
+.opt-container {
+    width: 100%;
+    height: 100%;
+    grid-area: opt;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 0;
+}
+
+.opt-container a {
+    width: 50%;
+}
+
+.opt-container a img {
+    width: 100%;
+}
