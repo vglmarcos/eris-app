@@ -1,0 +1,25 @@
+<div class="title-container">
+    <p><b>Agregar un nuevo Producto</b></p>
+</div>
+<div class="info-container">
+    <div class="row-container">
+        <p><b>Nombre del producto:</b></p>
+        <input type="text" placeholder="Producto-1">
+    </div>
+    <div class="row-container">
+        <p><b>Tipo:</b></p>
+        <select name="Tipo" id="">
+            <option value="1">Reparación</option>
+            <option value="2">Pieza</option>
+            <option value="3">Herramienta</option>
+        </select>
+    </div>
+    <div class="row-container">
+        <p><b>Precio:</b></p>
+        <input type="text" placeholder="$">
+    </div>
+    <div class="row-container-btn">
+        <button (click)="onSubmit()">Cancelar</button>
+        <button (click)="onSubmit()">Guardar</button>
+    </div>
+</div>

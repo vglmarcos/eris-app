@@ -7,6 +7,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { MostrarPerfilComponent } from './pages/mostrar-perfil/mostrar-perfil.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { MenuSecundarioComponent } from './components/menu-secundario/menu-secundario.component';
+import { AgregarProductoComponent } from './pages/agregar-producto/agregar-producto.component';
+import { BuscarProductoComponent } from './pages/buscar-producto/buscar-producto.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { MenuSecundarioComponent } from './components/menu-secundario/menu-secun
     LoginComponent,
     MostrarPerfilComponent,
     MenuComponent,
-    MenuSecundarioComponent
+    MenuSecundarioComponent,
+    AgregarProductoComponent,
+    BuscarProductoComponent
   ],
   imports: [
     BrowserModule,
