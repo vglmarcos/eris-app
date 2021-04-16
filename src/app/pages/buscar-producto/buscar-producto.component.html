@@ -1,0 +1,84 @@
+<div class="title-container">
+    <p><b>Búsqueda de Productos</b></p>
+</div>
+<div class="info-container">
+    <div class="row-container">
+        <p><b>Consulta</b></p>
+        <input type="text" placeholder="">
+        <p><b>por:</b></p>
+        <select class="por" name="por" id="">
+            <option value="1">Nombre</option>
+            <option value="2">Tipo</option>
+        </select>
+        <button (click)="onSubmit()">Buscar</button>
+    </div>
+    <div class="row-container">
+        <p><b>Ordenado por:</b></p>
+        <select class="ordenado" name="" id="">
+            <option value="1">ID</option>
+            <option value="2">Nombre</option>
+            <option value="3">Tipo</option>
+            <option value="4">Precio</option>
+        </select>
+        <select class="as-des" name="" id="">
+            <option value="1">Ascendente</option>
+            <option value="2">Descendente</option>
+        </select>
+        <button (click)="onSubmit()">Limpiar filtros</button>
+    </div>
+    <div class="row-container">
+        <table>
+            <th class="th1">ID</th>
+            <th class="th2">Nombre del Producto</th>
+            <th class="th3">Tipo</th>
+            <th class="th4">Precio</th>
+            <tr>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+            </tr>
+            <tr>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+            </tr>
+            <tr>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+            </tr>
+            <tr>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+            </tr>
+            <tr>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+            </tr>
+            <tr>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+            </tr>
+            <tr>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+                <td>Hola</td>
+            </tr>
+        </table>
+    </div>
+    <div class="row-container">
+        <button (click)="onSubmit()">Eliminar</button>
+        <button (click)="onSubmit()">Modificar</button>
+        <button (click)="onSubmit()">Nuevo</button>
+    </div>
+</div>

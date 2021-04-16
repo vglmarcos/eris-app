@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "eris-app"
+    }
+  },
+  "defaultProject": "eris-app",
+  "cli": {
+    "analytics": "b2a40105-4cec-4cb3-acd6-c9869c1e253d"
+  }
 }
