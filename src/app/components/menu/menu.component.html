@@ -1,35 +1,35 @@
 <a [routerLink]="['/mostrar-perfil']">
-    <div class="perfil">
+    <div class="perfil" [routerLinkActive]="['active-page']">
         <img src="assets/img/perfil.png" alt="Perfil">
         <p>Perfil</p>
     </div>
 </a>
 <a href="">
-    <div class="cotizaciones">
+    <div class="cotizaciones" [routerLinkActive]="['active-page']">
         <img src="assets/img/carrito.png" alt="Cotizaciones">
         <p>Cotizaciones</p>
     </div>
 </a>
 <a [routerLink]="['/buscar-producto']">
-    <div class="productos">
+    <div class="productos" [routerLinkActive]="['active-page']">
         <img src="assets/img/productos.png" alt="Productos">
         <p>Productos</p>
     </div>
 </a>
 <a href="">
-    <div class="reportes">
+    <div class="reportes" [routerLinkActive]="['active-page']">
         <img src="assets/img/reportes.png" alt="Reportes">
         <p>Reportes</p>
     </div>
 </a>
 <a href="">
-    <div class="recibos">
+    <div class="recibos" [routerLinkActive]="['active-page']">
         <img src="assets/img/recibos.png" alt="Recibos">
         <p>Recibos</p>
     </div>
 </a>
-<a href="">
-    <div class="empleados">
+<a [routerLink]="['/buscar-empleado']">
+    <div class="empleados" [routerLinkActive]="['active-page']">
         <img src="assets/img/empleados.png" alt="Empleados">
         <p>Empleados</p>
     </div>

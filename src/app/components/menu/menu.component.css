@@ -84,3 +84,7 @@
 .empleados img {
     width: 60px;
 }
+
+.active-page {
+    background: var(--panel-color);
+}

@@ -33,7 +33,7 @@ router-outlet {
     height: 100%;
     background-color: var(--primary-color);
     display: grid;
-    grid-template-columns: 200px 1fr 100px;
+    grid-template-columns: 150px 1fr 100px;
     grid-template-rows: 1fr;
     grid-template-areas: 'nav main opt';
 }
@@ -53,17 +53,11 @@ app-menu {
     'empleados';
 }
 
-app-mostrar-perfil, app-agregar-producto {
-    grid-area: main;
-    background: var(--panel-color);
-    border-radius: 0 10px 10px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 100px;
-}
-
-app-buscar-producto {
+app-mostrar-perfil,
+app-agregar-producto,
+app-buscar-producto,
+app-buscar-empleado,
+app-agregar-empleado {
     grid-area: main;
     background: var(--panel-color);
     border-radius: 0 10px 10px 0;
