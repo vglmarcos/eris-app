@@ -4,6 +4,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { MostrarPerfilComponent } from './pages/mostrar-perfil/mostrar-perfil.component';
 import { AgregarProductoComponent } from './pages/agregar-producto/agregar-producto.component';
 import { BuscarProductoComponent } from './pages/buscar-producto/buscar-producto.component';
+import { ModificarProductoComponent } from './pages/modificar-producto/modificar-producto.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'buscar-producto',
     component: BuscarProductoComponent
+  },
+  {
+    path: 'modificar-producto',
+    component: ModificarProductoComponent
   },
   {
     path: '',

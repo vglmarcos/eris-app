@@ -9,6 +9,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { MenuSecundarioComponent } from './components/menu-secundario/menu-secundario.component';
 import { AgregarProductoComponent } from './pages/agregar-producto/agregar-producto.component';
 import { BuscarProductoComponent } from './pages/buscar-producto/buscar-producto.component';
+import { ModificarProductoComponent } from './pages/modificar-producto/modificar-producto.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { BuscarProductoComponent } from './pages/buscar-producto/buscar-producto
     MenuComponent,
     MenuSecundarioComponent,
     AgregarProductoComponent,
-    BuscarProductoComponent
+    BuscarProductoComponent,
+    ModificarProductoComponent
   ],
   imports: [
     BrowserModule,
