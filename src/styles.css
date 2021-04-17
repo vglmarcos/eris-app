@@ -53,25 +53,11 @@ app-menu {
     'empleados';
 }
 
-<<<<<<< HEAD
-app-mostrar-perfil, app-agregar-producto, app-modificar-producto{
-    grid-area: main;
-    background: var(--panel-color);
-    border-radius: 0 10px 10px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 100px;
-}
-
-app-buscar-producto {
-=======
 app-mostrar-perfil,
 app-agregar-producto,
 app-buscar-producto,
 app-buscar-empleado,
 app-agregar-empleado {
->>>>>>> empleado-page
     grid-area: main;
     background: var(--panel-color);
     border-radius: 0 10px 10px 0;
