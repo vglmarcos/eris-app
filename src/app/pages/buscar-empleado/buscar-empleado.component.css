@@ -124,7 +124,7 @@ table::-webkit-scrollbar{
 }
 
 table::-webkit-scrollbar-thumb {
-    background: #50789c;
+    background: var(--stroke-color);
     border-radius: 4px;
 }
 

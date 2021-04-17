@@ -1,0 +1,53 @@
+<div class="title-container">
+    <p><b>Agregar un nuevo Empleado</b></p>
+</div>
+<div class="info-container">
+    <div class="row-container">
+        <p><b>Nombre:</b></p>
+        <input type="text">
+    </div>
+    <div class="row-container">
+        <p><b>Apellidos:</b></p>
+        <input type="text">
+    </div>
+    <div class="input-group">
+        <div class="column-container">
+            <p><b>Tipo:</b></p>
+            <select name="Tipo" id="">
+                <option value="1">Administrador</option>
+                <option value="2">Empleado</option>
+            </select>
+        </div>
+        <div class="sep"></div>
+        <div class="column-container">
+            <p><b>Teléfono:</b></p>
+            <input type="text">
+        </div>
+    </div>
+    <div class="input-group-2">
+        <div class="column-container">
+            <p><b>Usuario:</b></p>
+            <input type="text">
+        </div>
+        <div class="sep"></div>
+        <div class="column-container">
+            <p><b>Correo:</b></p>
+            <input type="text">
+        </div>
+    </div>
+    <div class="input-group-2">
+        <div class="column-container">
+            <p><b>Contraseña:</b></p>
+            <input type="password">
+        </div>
+        <div class="sep"></div>
+        <div class="column-container">
+            <p><b>Confirmar contraseña:</b></p>
+            <input type="password">
+        </div>
+    </div>
+    <div class="row-container-btn">
+        <button (click)="onSubmit()">Cancelar</button>
+        <button (click)="onSubmit()">Guardar</button>
+    </div>
+</div>
