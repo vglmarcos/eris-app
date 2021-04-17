@@ -116,13 +116,13 @@ button:hover {
     background-color: #50789c;
 }
 
-.input-group-2 {
+.input-group {
     display: flex;
     flex-direction: row;
     width: 100%;
 }
 
-.input-group-2 .row-container {
+.input-group .row-container {
     width: 50%;
 }
 
