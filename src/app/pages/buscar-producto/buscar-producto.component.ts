@@ -14,6 +14,14 @@ export class BuscarProductoComponent implements OnInit {
   }
 
   onSubmit() {
+    this.router.navigate(['login']);
+  }
+
+  onSubmitModificar() {
+    this.router.navigate(['modificar-producto']);
+  }
+
+  onSubmitNuevo() {
     this.router.navigate(['agregar-producto']);
   }
 }
