@@ -7,6 +7,8 @@ import { BuscarProductoComponent } from './pages/buscar-producto/buscar-producto
 import { AgregarEmpleadoComponent } from './pages/agregar-empleado/agregar-empleado.component';
 import { BuscarEmpleadoComponent } from './pages/buscar-empleado/buscar-empleado.component';
 import { BuscarCotizacionComponent } from './pages/buscar-cotizacion/buscar-cotizacion.component';
+import { BuscarReporteComponent } from './pages/buscar-reporte/buscar-reporte.component';
+import { GenerarReporteComponent } from './pages/generar-reporte/generar-reporte.component';
 
 const routes: Routes = [
   {
@@ -36,6 +38,14 @@ const routes: Routes = [
   {
     path: 'buscar-cotizacion',
     component: BuscarCotizacionComponent
+  },
+  {
+    path: 'buscar-reporte',
+    component: BuscarReporteComponent
+  },
+  {
+    path: 'generar-reporte',
+    component: GenerarReporteComponent
   },
   {
     path: '',

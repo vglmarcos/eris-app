@@ -1,0 +1,58 @@
+<div class="title-container">
+    <p><b>Búsqueda de Reporte</b></p>
+</div>
+<div class="info-container">
+    <div class="row-container">
+        <p><b>Consulta</b></p>
+        <input type="text" placeholder="">
+        <p><b>por:</b></p>
+        <select class="por" name="por" id="">
+            <option value="1">Nombre</option>
+            <option value="2">Producto</option>
+            <option value="3">Tipo</option>
+        </select>
+        <button (click)="onSubmit()">Buscar</button>
+    </div>
+    <div class="row-container">
+        <p><b>Ordenado por:</b></p>
+        <select class="ordenado" name="" id="">
+            <option value="1">ID</option>
+            <option value="2">Nombre</option>
+            <option value="3">Producto</option>
+            <option value="4">Tipo</option>
+            <option value="5">Precio</option>
+        </select>
+        <select class="as-des" name="" id="">
+            <option value="1">Ascendente</option>
+            <option value="2">Descendente</option>
+        </select>
+        <button (click)="onSubmit()">Limpiar filtros</button>
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th class="th1">ID</th>
+                    <th class="th2">Nombre</th>
+                    <th class="th3">Nombre</th>
+                    <th class="th4">Tipo</th>
+                    <th class="th5">Periodo</th>
+                    <th class="th6">Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ID</td>
+                    <td>Nombre</td>
+                    <td>ID</td>
+                    <td>Nombre</td>
+                    <td>Hola</td>
+                    <td>HOLA</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row-container-btn">
+        <button (click)="onSubmit()">Eliminar</button>
+    </div>
+</div>

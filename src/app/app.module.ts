@@ -12,6 +12,8 @@ import { BuscarProductoComponent } from './pages/buscar-producto/buscar-producto
 import { AgregarEmpleadoComponent } from './pages/agregar-empleado/agregar-empleado.component';
 import { BuscarEmpleadoComponent } from './pages/buscar-empleado/buscar-empleado.component';
 import { BuscarCotizacionComponent } from './pages/buscar-cotizacion/buscar-cotizacion.component';
+import { BuscarReporteComponent } from './pages/buscar-reporte/buscar-reporte.component';
+import { GenerarReporteComponent } from './pages/generar-reporte/generar-reporte.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { BuscarCotizacionComponent } from './pages/buscar-cotizacion/buscar-coti
     BuscarProductoComponent,
     AgregarEmpleadoComponent,
     BuscarEmpleadoComponent,
-    BuscarCotizacionComponent
+    BuscarCotizacionComponent,
+    BuscarReporteComponent,
+    GenerarReporteComponent
   ],
   imports: [
     BrowserModule,
