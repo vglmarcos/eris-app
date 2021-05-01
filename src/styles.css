@@ -5,6 +5,8 @@
     --font-color-2: #E2E2E2;
     --panel-color: #30495F;
     --stroke-color: #798187;
+    --radius-table: 5px;
+    --secondary-color-2: #4c7092;
   }
 
 * {
@@ -57,7 +59,8 @@ app-mostrar-perfil,
 app-agregar-producto,
 app-buscar-producto,
 app-buscar-empleado,
-app-agregar-empleado {
+app-agregar-empleado,
+app-buscar-cotizacion {
     grid-area: main;
     background: var(--panel-color);
     border-radius: 0 10px 10px 0;

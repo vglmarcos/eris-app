@@ -11,6 +11,7 @@ import { AgregarProductoComponent } from './pages/agregar-producto/agregar-produ
 import { BuscarProductoComponent } from './pages/buscar-producto/buscar-producto.component';
 import { AgregarEmpleadoComponent } from './pages/agregar-empleado/agregar-empleado.component';
 import { BuscarEmpleadoComponent } from './pages/buscar-empleado/buscar-empleado.component';
+import { BuscarCotizacionComponent } from './pages/buscar-cotizacion/buscar-cotizacion.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { BuscarEmpleadoComponent } from './pages/buscar-empleado/buscar-empleado
     AgregarProductoComponent,
     BuscarProductoComponent,
     AgregarEmpleadoComponent,
-    BuscarEmpleadoComponent
+    BuscarEmpleadoComponent,
+    BuscarCotizacionComponent
   ],
   imports: [
     BrowserModule,
