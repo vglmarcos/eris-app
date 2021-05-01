@@ -57,7 +57,9 @@ app-mostrar-perfil,
 app-agregar-producto,
 app-buscar-producto,
 app-buscar-empleado,
-app-agregar-empleado {
+app-agregar-empleado,
+app-buscar-reporte,
+app-generar-reporte {
     grid-area: main;
     background: var(--panel-color);
     border-radius: 0 10px 10px 0;
