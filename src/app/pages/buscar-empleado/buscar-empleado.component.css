@@ -7,7 +7,7 @@
 }
 
 .title-container p {
-    font-size: 40px;
+    font-size: 2.5rem;
 }
 
 .info-container{
@@ -21,7 +21,8 @@
 }
 
 .info-container p{
-    font-size: 30px;
+    padding-top: 4px;
+    font-size: 1.9rem;
 }
 
 .row-container{
@@ -39,7 +40,7 @@
     background: var(--primary-color);
     border: 2px solid var(--stroke-color);
     padding-left: 10px;
-    font-size: 28px;
+    font-size: 1.6rem;
 }
 
 .row-container select {
@@ -50,7 +51,7 @@
     background: var(--primary-color);
     border: 2px solid var(--stroke-color);
     padding-left: 10px;
-    font-size: 28px;
+    font-size: 1.6rem;
 }
 
 .por{
@@ -90,7 +91,7 @@ button {
     cursor: pointer;
     -webkit-box-shadow: 6px 5px 8px -3px rgba(0,0,0,0.5); 
     box-shadow: 6px 5px 8px -3px rgba(0,0,0,0.5);
-    font-size: 27px;
+    font-size: 1.7rem;
 }
 
 button:hover {
@@ -106,7 +107,7 @@ table {
     padding: 0;
     background-color: var(--secondary-color);
     border-radius: 6px;
-    overflow: scroll;
+    overflow: auto;
     overflow-x: hidden;
     scrollbar-highlight-color: blueviolet;
     scrollbar-color: var(--primary-color);
@@ -114,7 +115,7 @@ table {
     cursor: pointer;
     -webkit-box-shadow: 6px 5px 8px -3px rgba(0,0,0,0.5); 
     box-shadow: 6px 5px 8px -3px rgba(0,0,0,0.5);
-    font-size: 25px;
+    font-size: 1.6rem;
     size: 300px;
 }
 
@@ -138,6 +139,7 @@ table::-webkit-scrollbar-thumb:active {
 }
 
 table th {
+    padding-top: 5px;
     height: 44px;
     background-color: var(--primary-color);
     vertical-align: middle;
@@ -148,7 +150,7 @@ table th {
 }
 
 .th2 {
-    width: 40%;
+    width: 30%;
 }
 
 .th3 {
@@ -164,7 +166,7 @@ table th {
 }
 
 .th6 {
-    min-width: 10%;
+    min-width: 13%;
 }
 
 
