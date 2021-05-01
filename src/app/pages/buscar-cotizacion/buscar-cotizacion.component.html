@@ -1,0 +1,47 @@
+<div class="cotizacion-page">
+    <div class="title">
+        <h4>Búsqueda de Cotizaciones</h4>
+    </div>
+    <div class="inputs-busqueda">
+        <div class="inputs-row">
+            <label for="consulta">Consulta:</label>
+            <input class="consulta-input" type="text" id="consulta">
+            <label for="por">por</label>
+            <select class="select-consulta" name="por" id="por"></select>
+        </div>
+        <div class="inputs-row">
+            <label class="orden-label" for="orden">Ordeado por:</label>
+            <select class="orden-select" name="orden" id="orden"></select>
+            <select name="tipo" id="tipo"></select>
+        </div>
+    </div>
+    <div class="table-cotizacion">
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col" class="border-radius-first">ID</th>
+                    <th scope="col">Nombre del Cliente</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col" class="border-radius-last">Usuario</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cotizacion of this.cotizaciones">
+                    <th scope="row" class="center-text text-normal">{{cotizacion.id}}</th>
+                    <td>{{cotizacion.nombre_cliente}}</td>
+                    <td class="center-text">{{cotizacion.total}}</td>
+                    <td class="center-text">{{cotizacion.estado}}</td>
+                    <td class="center-text">{{cotizacion.fecha}}</td>
+                    <td class="center-text">{{cotizacion.usuario}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="buttons-group">
+        <button>Modificar</button>
+        <button>Limpiar filtros</button>
+        <button>Buscar</button>
+    </div>
+</div>

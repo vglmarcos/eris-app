@@ -10,7 +10,7 @@
     font-size: 2.5rem;
 }
 
-.info-container{
+.info-container {
     width: 100%;
     height: 100%;
     margin: 1%;
@@ -33,7 +33,7 @@
     justify-content: space-between;
 }
 
-.row-container input, select{
+.row-container input, select {
     width: 50%;
     height: 46px;
     outline: none;
