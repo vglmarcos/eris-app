@@ -144,7 +144,8 @@ table th {
 }
 
 .th1{
-    width: 100px;
+    width: 80px;
+    max-width: 80px;
 }
 
 .th2 {
@@ -164,7 +165,8 @@ tr:hover{
 }
 
 table tr td{
-    padding-left: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
     height: 45px;
 }
 

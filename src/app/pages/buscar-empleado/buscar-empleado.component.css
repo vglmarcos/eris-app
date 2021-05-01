@@ -124,7 +124,7 @@ table::-webkit-scrollbar{
 }
 
 table::-webkit-scrollbar-thumb {
-    background: var(--stroke-color);
+    background:  #50789c;
     border-radius: 4px;
 }
 
@@ -144,27 +144,37 @@ table th {
 }
 
 .th1{
-    width: 100px;
+    width: 5%;
 }
 
 .th2 {
-    width: 55%;
+    width: 40%;
 }
 
 .th3 {
-    width: 200px;
+    width: 15%;
 }
 
-.th4{
-    width: 180px;
+.th4 {
+    width: 8%;
 }
+
+.th5 {
+    width: 25%;
+}
+
+.th6 {
+    min-width: 10%;
+}
+
 
 tr:hover{
     background-color: #50789c;
 }
 
 table tr td{
-    padding-left: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
     height: 45px;
 }
 
