@@ -65,7 +65,8 @@ app-buscar-cotizacion,
 app-buscar-reporte,
 app-generar-reporte,
 app-modificar-perfil,
-app-visualizar-reporte {
+app-visualizar-reporte,
+app-agregar-cotizacion {
     grid-area: main;
     background: var(--panel-color);
     border-radius: 0 10px 10px 0;

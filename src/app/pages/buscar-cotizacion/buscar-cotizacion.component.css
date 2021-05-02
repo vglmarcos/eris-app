@@ -1,5 +1,4 @@
-.cotizacion-page {
-    justify-content: space-evenly;
+.title-container {
     width: 100%;
     height: 20%;
     display: flex;
@@ -8,7 +7,7 @@
 }
 
 .title-container p {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
 }
 
 .info-container{
@@ -21,21 +20,9 @@
     justify-content: space-evenly;
 }
 
-.inputs-busqueda {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    padding-left: 5%;
-    padding-right: 5%;
-    flex-direction: column;
-    display: flex;
-    justify-content: space-evenly;
-}
-
 .info-container p{
     padding-top: 4px;
-    font-size: 1.6rem;
+    font-size: 1.9rem;
 }
 
 .row-container {
@@ -44,12 +31,7 @@
     justify-content:space-between;
 }
 
-.row-container-inputs {
-    flex-direction: row;
-    display:flex;
-}
-
-.row-container-inputs input{
+.row-container input{
     width: 100%;
     height: 46px;
     outline: none;
@@ -58,10 +40,10 @@
     background: var(--primary-color);
     border: 2px solid var(--stroke-color);
     padding-left: 10px;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
 }
 
-.row-container-inputs select {
+.row-container select {
     width: 100%;
     height: 46px;
     outline: none;
@@ -70,7 +52,7 @@
     background: var(--primary-color);
     border: 2px solid var(--stroke-color);
     padding-left: 10px;
-    font-size:1.5rem;
+    font-size:1.6rem;
 }
 
 .row-container input:focus, select:focus{
@@ -83,11 +65,7 @@
     flex-direction: row;
     display:flex;
     justify-content:space-between;
-    padding-top: 15px;
-}
-
-.no-wrap {
-    white-space: nowrap;
+    padding-top: 20px;
 }
 
 button {
@@ -101,7 +79,7 @@ button {
     cursor: pointer;
     -webkit-box-shadow: 6px 5px 8px -3px rgba(0,0,0,0.5); 
     box-shadow: 6px 5px 8px -3px rgba(0,0,0,0.5);
-    font-size: 1.6rem;
+    font-size: 1.7rem;
 }
 
 button:hover {
@@ -110,7 +88,8 @@ button:hover {
     background-color: #50789c;
 }
 
-.table-cotizacion {
+
+.tabla-producto {
     display: flex;
     margin-top: 10px;
     width: 100%;
@@ -122,36 +101,35 @@ button:hover {
     overflow-x: hidden;
 }
 
-.table-cotizacion::-webkit-scrollbar{
+.tabla-producto::-webkit-scrollbar{
     width: 8px;     /* Tamaño del scroll en vertical */
     height: 100%;    /* Tamaño del scroll en horizontal */ 
 }
 
-.table-cotizacion::-webkit-scrollbar-thumb {
+.tabla-producto::-webkit-scrollbar-thumb {
     background: #50789c;
     border-radius: 4px;
 }
 
-.table-cotizacion::-webkit-scrollbar-thumb:hover{
+.tabla-producto::-webkit-scrollbar-thumb:hover{
     box-shadow: 6px 5px 8px -3px rgba(0,0,0,0.5);
     background-color: #50789c;
 }
 
-.table-cotizacion::-webkit-scrollbar-thumb:active {
+.tabla-producto::-webkit-scrollbar-thumb:active {
     background-color: var(--primary-color);
 }
 
-.table-cotizacion table {
+.tabla-producto table {
     width: 100%;
     border-collapse: collapse;
     font-size: 1.2rem;
 }
 
-.table-cotizacion table thead tr {
+.tabla-producto table thead tr {
     height: 40px;
     background-color: var(--primary-color);
 }
-
 
 tr:hover{
     background-color: #50789c;
@@ -165,27 +143,44 @@ tr:hover{
     border-radius: 0 var(--radius-table) 0 0;
 }
 
-.table-cotizacion table tbody tr {
+.tabla-producto table tbody tr {
     height: 40px;
     cursor: pointer;
-}
-
-.center-text {
-    text-align: center;
 }
 
 .text-normal {
     font-weight: 400;
 }
 
-.input-space-consulta {
+.center-text {
+    text-align: center;
+}
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: var(--stroke-color);
+}
+  
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: var(--stroke-color);
+}
+  
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: var(--stroke-color);
+}
+
+.consulta-input {
     margin: 0 20px;
 }
 
-.select-space-consulta {
+.consulta-select {
     margin-left: 20px;
 }
 
-.select-space-ordenado {
+.no-wrap {
+    white-space: nowrap;
+}
+
+.ordenado-select {
     margin: 0 20px;
 }
