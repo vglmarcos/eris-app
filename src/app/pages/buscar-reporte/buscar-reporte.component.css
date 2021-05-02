@@ -74,10 +74,11 @@
 }
 
 .row-container-btn{
+    width: 100%;
     flex-direction: row;
     display:flex;
-    justify-content:space-between;
-    padding-top: 20px;
+    justify-content:center;
+    margin-top: 20px;
 }
 
 button {
@@ -86,7 +87,6 @@ button {
     height: 44px;
     border: none;
     border-radius: 6px;
-    justify-content: space-between;
     outline: none;
     cursor: pointer;
     -webkit-box-shadow: 6px 5px 8px -3px rgba(0,0,0,0.5); 
@@ -101,7 +101,7 @@ button:hover {
 }
 
 
-.tabla-producto {
+.tabla-reporte {
     display: flex;
     margin-top: 10px;
     width: 100%;
@@ -113,32 +113,32 @@ button:hover {
     overflow-x: hidden;
 }
 
-.tabla-producto::-webkit-scrollbar{
+.tabla-reporte::-webkit-scrollbar{
     width: 8px;     /* Tamaño del scroll en vertical */
     height: 100%;    /* Tamaño del scroll en horizontal */ 
 }
 
-.tabla-producto::-webkit-scrollbar-thumb {
+.tabla-reporte::-webkit-scrollbar-thumb {
     background: #50789c;
     border-radius: 4px;
 }
 
-.tabla-producto::-webkit-scrollbar-thumb:hover{
+.tabla-reporte::-webkit-scrollbar-thumb:hover{
     box-shadow: 6px 5px 8px -3px rgba(0,0,0,0.5);
     background-color: #50789c;
 }
 
-.tabla-producto::-webkit-scrollbar-thumb:active {
+.tabla-reporte::-webkit-scrollbar-thumb:active {
     background-color: var(--primary-color);
 }
 
-.tabla-producto table {
+.tabla-reporte table {
     width: 100%;
     border-collapse: collapse;
     font-size: 1.2rem;
 }
 
-.tabla-producto table thead tr {
+.tabla-reporte table thead tr {
     height: 40px;
     background-color: var(--primary-color);
 }
@@ -155,7 +155,7 @@ tr:hover{
     border-radius: 0 var(--radius-table) 0 0;
 }
 
-.tabla-producto table tbody tr {
+.tabla-reporte table tbody tr {
     height: 40px;
     cursor: pointer;
 }
@@ -167,7 +167,6 @@ tr:hover{
 .center-text {
     text-align: center;
 }
-
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: var(--stroke-color);

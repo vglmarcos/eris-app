@@ -1,5 +1,5 @@
 <div class="title-container">
-    <p><b>Búsqueda de Productos</b></p>
+    <p><b>Búsqueda de Reporte</b></p>
 </div>
 <div class="info-container">
     <div class="row-container">
@@ -8,17 +8,18 @@
         <p><b>por:</b></p>
         <select class="por" name="por" id="">
             <option value="1">Nombre</option>
-            <option value="2">Tipo</option>
+            <option value="2">Producto</option>
+            <option value="3">Tipo</option>
         </select>
-        <button (click)="onSubmit()">Buscar</button>
+        <button (click)="onSubmitVer()">Buscar</button>
     </div>
     <div class="row-container">
         <p><b>Ordenado por:</b></p>
         <select class="ordenado" name="" id="">
             <option value="1">ID</option>
             <option value="2">Nombre</option>
-            <option value="3">Tipo</option>
-            <option value="4">Precio</option>
+            <option value="3">Producto</option>
+            <option value="4">Tipo</option>
         </select>
         <select class="as-des" name="" id="">
             <option value="1">Ascendente</option>
@@ -26,7 +27,7 @@
         </select>
         <button (click)="onSubmit()">Limpiar filtros</button>
     </div>
-    <div class="tabla-producto">
+    <div class="tabla-reporte">
         <table>
             <thead>
                 <tr>
@@ -34,21 +35,23 @@
                     <th scope="col">Nombre del Producto</th>
                     <th scope="col">Tipo</th>
                     <th scope="col">Precio</th>
+                    <th scope="col">Periodo</th>
+                    <th scope="col">Fecha</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let producto of this.productos">
-                    <th scope="row" class="center-text text-normal">{{producto.id}}</th>
-                    <td>{{producto.nombre_producto}}</td>
-                    <td class="center-text">{{producto.tipo}}</td>
-                    <td class="center-text">{{producto.precio}}</td>
+                <tr *ngFor="let reporte of this.reportes">
+                    <th scope="row" class="center-text text-normal">{{reporte.id}}</th>
+                    <td>{{reporte.nombre_reporte}}</td>
+                    <td class="center-text">{{reporte.nombre_producto}}</td>
+                    <td class="center-text">{{reporte.tipo_producto}}</td>
+                    <td class="center-text">{{reporte.periodo}}</td>
+                    <td class="center-text">{{reporte.fecha}}</td>
                 </tr>
             </tbody>
         </table>
     </div>
-    <div class="row-container">
+    <div class="row-container-btn">
         <button (click)="onSubmit()">Eliminar</button>
-        <button (click)="onSubmitModificar()">Modificar</button>
-        <button (click)="onSubmitNuevo()">Nuevo</button>
     </div>
 </div>

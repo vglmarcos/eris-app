@@ -13,8 +13,8 @@ export class AgregarProductoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit() {
-    this.router.navigate(['login']);
+  onSubmitGuardar() {
+    this.router.navigate(['buscar-producto']);
   }
 
   onSubmitCancelar() {

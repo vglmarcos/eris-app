@@ -57,10 +57,15 @@ app-menu {
 
 app-mostrar-perfil,
 app-agregar-producto,
+app-modificar-producto,
 app-buscar-producto,
 app-buscar-empleado,
 app-agregar-empleado,
-app-buscar-cotizacion {
+app-buscar-cotizacion,
+app-buscar-reporte,
+app-generar-reporte,
+app-modificar-perfil,
+app-visualizar-reporte {
     grid-area: main;
     background: var(--panel-color);
     border-radius: 0 10px 10px 0;
