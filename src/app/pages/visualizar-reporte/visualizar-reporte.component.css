@@ -1,0 +1,89 @@
+.title-container {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.title-container p {
+    font-size: 2.5rem;
+}
+
+.info-container {
+    width: 100%;
+    height: 100%;
+    margin: 1%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 0%;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.info-container p{
+    padding-top: 4px;
+    font-size: 1.9rem;
+}
+
+.row-container{
+    flex-direction: row;
+    display:flex;
+    justify-content: space-between;
+}
+
+.row-container input, select {
+    height: 46px;
+    outline: none;
+    border-radius: 6px;
+    color: var(--font-color-2);
+    background: var(--primary-color);
+    border: 2px solid var(--stroke-color);
+    padding-left: 10px;
+    font-size: 1.6rem;
+}
+
+.nombre{
+    width: 50%;
+}
+
+.fecha{
+    width: 20%;
+}
+
+.producto{
+    width: 45%;
+}
+
+.tipo {
+    width: 25%;
+}
+
+.periodo{
+    width: 85%;
+}
+
+.row-container input:focus, select:focus{
+    transition-property: border;
+    transition-duration: 0.2s;
+    border: 2px solid var(--secondary-color);
+}
+
+.reporte-container{
+    background-color: var(--secondary-color);
+    width: 100%;
+    height: 55%;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: var(--stroke-color);
+}
+  
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: var(--stroke-color);
+}
+  
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: var(--stroke-color);
+}

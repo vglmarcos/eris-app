@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PRODUCTOS } from './productos';
 
 @Component({
   selector: 'app-buscar-producto',
@@ -7,6 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./buscar-producto.component.css']
 })
 export class BuscarProductoComponent implements OnInit {
+
+  public productos = PRODUCTOS;
 
   constructor(private router: Router) { }
 
