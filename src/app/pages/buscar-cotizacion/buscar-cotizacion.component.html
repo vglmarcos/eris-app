@@ -2,18 +2,18 @@
     <p><b>Búsqueda de Cotizaciones</b></p>
 </div>
 <div class="info-container">
-    <div class="row-container-inputs">
+    <div class="row-container">
         <p><b>Consulta</b></p>
-        <input type="text" placeholder="" class="input-space-consulta">
+        <input type="text" placeholder="" class="consulta-input">
         <p><b>por:</b></p>
-        <select class="por" name="por" id="" class="select-space-consulta">
+        <select class="por" name="por" id="" class="consulta-select">
             <option value="1">Nombre</option>
             <option value="2">Tipo</option>
         </select>
     </div>
-    <div class="row-container-inputs">
+    <div class="row-container">
         <p><b class="no-wrap">Ordenado por:</b></p>
-        <select class="ordenado" name="" id="" class="select-space-ordenado">
+        <select class="ordenado-select" name="" id="">
             <option value="1">ID</option>
             <option value="2">Nombre</option>
             <option value="3">Tipo</option>
@@ -24,7 +24,7 @@
             <option value="2">Descendente</option>
         </select>
     </div>
-    <div class="table-cotizacion">
+    <div class="tabla-producto">
         <table>
             <thead>
                 <tr>
@@ -48,9 +48,9 @@
             </tbody>
         </table>
     </div>
-    <div class="row-container-btn">
-        <button (click)="onSubmit()">Modificar</button>
-        <button (click)="onSubmitModificar()">Limpiar filtros</button>
+    <div class="row-container">
+        <button (click)="onSubmit()">Eliminar</button>
+        <button (click)="onSubmitModificar()">Limpiar Filtros</button>
         <button (click)="onSubmitNuevo()">Buscar</button>
     </div>
 </div>
