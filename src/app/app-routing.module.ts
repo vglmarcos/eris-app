@@ -13,6 +13,7 @@ import { GenerarReporteComponent } from './pages/generar-reporte/generar-reporte
 import { ModificarPerfilComponent } from './pages/modificar-perfil/modificar-perfil.component';
 import { VisualizarReporteComponent } from './pages/visualizar-reporte/visualizar-reporte.component';
 import { AgregarCotizacionComponent } from './pages/agregar-cotizacion/agregar-cotizacion.component';
+import { CarritoComponent } from './pages/carrito/carrito.component';
 
 const routes: Routes = [
   {
@@ -66,6 +67,10 @@ const routes: Routes = [
   {
     path: 'agregar-cotizacion',
     component: AgregarCotizacionComponent
+  },
+  {
+    path: 'carrito',
+    component: CarritoComponent
   },
   {
     path: '',

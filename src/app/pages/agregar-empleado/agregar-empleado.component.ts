@@ -14,7 +14,7 @@ export class AgregarEmpleadoComponent implements OnInit {
   }
 
   onSubmit() {
-    this.router.navigate(['login']);
+    this.router.navigate(['buscar-empleado']);
   }
 
 }

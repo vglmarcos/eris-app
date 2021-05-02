@@ -4,11 +4,17 @@
         <p>Perfil</p>
     </div>
 </a>
-<a [routerLink]="['/buscar-cotizacion']">
-    <div class="cotizaciones" [ngClass]="isActive(['/buscar-cotizacion', '/agregar-cotizacion'])">
+<a (mouseover)="changeText=true" (mouseout)="changeText=false">
+    <div *ngIf="!changeText; else elseBlock" class="cotizaciones" [ngClass]="isActive(['/buscar-cotizacion', '/agregar-cotizacion', '/carrito'])">
         <img src="assets/img/carrito.png" alt="Cotizaciones">
         <p>Cotizaciones</p>
     </div>
+    <ng-template #elseBlock>
+        <div class="submenu-cotizacion">
+            <a [routerLink]="['/buscar-cotizacion']">Buscar Cotizaciones</a>
+            <a [routerLink]="['/agregar-cotizacion']">Agregar Cotizacion</a>
+        </div>
+    </ng-template>
 </a>
 <a [routerLink]="['/buscar-producto']">
     <div class="productos" [ngClass]="isActive(['/buscar-producto', '/agregar-producto', '/modificar-producto'])">

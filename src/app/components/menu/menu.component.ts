@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
 
+  public changeText = false;
+
   constructor(public router: Router) { }
 
   ngOnInit(): void {

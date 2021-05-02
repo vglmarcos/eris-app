@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CARRITO } from './carrito';
 
 @Component({
@@ -12,21 +13,21 @@ export class AgregarCotizacionComponent implements OnInit {
 
   public fecha = new Date();
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit() {
+  onSubmitEliminar() {
 
   }
 
-  onSubmitModificar() {
-
+  onSubmitAgregar() {
+    this.router.navigate(['carrito']);
   }
 
-  onSubmitNuevo() {
-    
+  onSubmitGuardar() {
+    this.router.navigate(['buscar-cotizacion']);
   }
 
 }

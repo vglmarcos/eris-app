@@ -18,6 +18,7 @@ import { GenerarReporteComponent } from './pages/generar-reporte/generar-reporte
 import { ModificarPerfilComponent } from './pages/modificar-perfil/modificar-perfil.component';
 import { VisualizarReporteComponent } from './pages/visualizar-reporte/visualizar-reporte.component';
 import { AgregarCotizacionComponent } from './pages/agregar-cotizacion/agregar-cotizacion.component';
+import { CarritoComponent } from './pages/carrito/carrito.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { AgregarCotizacionComponent } from './pages/agregar-cotizacion/agregar-c
     GenerarReporteComponent,
     ModificarPerfilComponent,
     VisualizarReporteComponent,
-    AgregarCotizacionComponent
+    AgregarCotizacionComponent,
+    CarritoComponent
   ],
   imports: [
     BrowserModule,
