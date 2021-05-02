@@ -1,4 +1,5 @@
 .cotizacion-page {
+    justify-content: space-evenly;
     width: 100%;
     height: 100%;
     display: flex;
@@ -13,6 +14,17 @@
 
 .title h4 {
     font-size: 2.2rem;
+}
+
+
+.info-container{
+    width: 100%;
+    height: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .inputs-busqueda {
@@ -119,6 +131,11 @@
     background-color: var(--primary-color);
 }
 
+
+tr:hover{
+    background-color: #50789c;
+}
+
 .border-radius-first {
     border-radius: var(--radius-table) 0 0 0;
 }
@@ -129,12 +146,8 @@
 
 .table-cotizacion table tbody tr {
     height: 40px;
+    cursor: pointer;
 }
-
-.table-cotizacion table tbody tr:nth-child(even) {
-    background-color: var(--secondary-color-2);
-}
-
 
 .center-text {
     text-align: center;

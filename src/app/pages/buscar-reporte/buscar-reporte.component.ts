@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { REPORTES } from './reportes';
 
 @Component({
   selector: 'app-buscar-reporte',
@@ -8,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class BuscarReporteComponent implements OnInit {
 
+  public reportes = REPORTES;
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -15,6 +18,10 @@ export class BuscarReporteComponent implements OnInit {
 
   onSubmit() {
     this.router.navigate(['generar-reporte']);
+  }
+
+  onSubmitVer() {
+    this.router.navigate(['visualizar-reporte']);
   }
   
 }

@@ -11,7 +11,7 @@
             <option value="2">Producto</option>
             <option value="3">Tipo</option>
         </select>
-        <button (click)="onSubmit()">Buscar</button>
+        <button (click)="onSubmitVer()">Buscar</button>
     </div>
     <div class="row-container">
         <p><b>Ordenado por:</b></p>
@@ -20,7 +20,6 @@
             <option value="2">Nombre</option>
             <option value="3">Producto</option>
             <option value="4">Tipo</option>
-            <option value="5">Precio</option>
         </select>
         <select class="as-des" name="" id="">
             <option value="1">Ascendente</option>
@@ -28,26 +27,26 @@
         </select>
         <button (click)="onSubmit()">Limpiar filtros</button>
     </div>
-    <div>
+    <div class="tabla-reporte">
         <table>
             <thead>
                 <tr>
-                    <th class="th1">ID</th>
-                    <th class="th2">Nombre</th>
-                    <th class="th3">Nombre</th>
-                    <th class="th4">Tipo</th>
-                    <th class="th5">Periodo</th>
-                    <th class="th6">Fecha</th>
+                    <th scope="col" class="border-radius-first">ID</th>
+                    <th scope="col">Nombre del Producto</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Periodo</th>
+                    <th scope="col">Fecha</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>ID</td>
-                    <td>Nombre</td>
-                    <td>ID</td>
-                    <td>Nombre</td>
-                    <td>Hola</td>
-                    <td>HOLA</td>
+                <tr *ngFor="let reporte of this.reportes">
+                    <th scope="row" class="center-text text-normal">{{reporte.id}}</th>
+                    <td>{{reporte.nombre_reporte}}</td>
+                    <td class="center-text">{{reporte.nombre_producto}}</td>
+                    <td class="center-text">{{reporte.tipo_producto}}</td>
+                    <td class="center-text">{{reporte.periodo}}</td>
+                    <td class="center-text">{{reporte.fecha}}</td>
                 </tr>
             </tbody>
         </table>

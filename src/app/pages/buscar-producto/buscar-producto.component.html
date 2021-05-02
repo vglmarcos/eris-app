@@ -26,22 +26,22 @@
         </select>
         <button (click)="onSubmit()">Limpiar filtros</button>
     </div>
-    <div>
+    <div class="tabla-producto">
         <table>
             <thead>
                 <tr>
-                    <th class="th1">ID</th>
-                    <th class="th2">Nombre del Producto</th>
-                    <th class="th3">Tipo</th>
-                    <th class="th4">Precio</th>
+                    <th scope="col" class="border-radius-first">ID</th>
+                    <th scope="col">Nombre del Producto</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Precio</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>ID</td>
-                    <td>Nombre</td>
-                    <td>ID</td>
-                    <td>Nombre</td>
+                <tr *ngFor="let producto of this.productos">
+                    <th scope="row" class="center-text text-normal">{{producto.id}}</th>
+                    <td>{{producto.nombre_producto}}</td>
+                    <td class="center-text">{{producto.tipo}}</td>
+                    <td class="center-text">{{producto.precio}}</td>
                 </tr>
             </tbody>
         </table>
