@@ -8,6 +8,7 @@ import { COTIZACIONES } from './cotizaciones';
 })
 export class BuscarCotizacionComponent implements OnInit {
 
+
   public cotizaciones = COTIZACIONES;
 
   constructor() { }

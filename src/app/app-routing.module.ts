@@ -47,6 +47,7 @@ const routes: Routes = [
     component: BuscarCotizacionComponent
   },
   {
+
     path: 'buscar-reporte',
     component: BuscarReporteComponent
   },
@@ -63,6 +64,7 @@ const routes: Routes = [
     component: VisualizarReporteComponent
   },
   {
+
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'

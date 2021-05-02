@@ -35,6 +35,7 @@ import { VisualizarReporteComponent } from './pages/visualizar-reporte/visualiza
     GenerarReporteComponent,
     ModificarPerfilComponent,
     VisualizarReporteComponent
+
   ],
   imports: [
     BrowserModule,

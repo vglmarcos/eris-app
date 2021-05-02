@@ -39,5 +39,5 @@ export let COTIZACIONES: ICotizaciones[] = [
         estado: "Pendiente",
         fecha: "18/04/2020",
         usuario: "mayinxd"
-    },
+    }
 ]
