@@ -17,7 +17,7 @@ import { BuscarReporteComponent } from './pages/buscar-reporte/buscar-reporte.co
 import { GenerarReporteComponent } from './pages/generar-reporte/generar-reporte.component';
 import { ModificarPerfilComponent } from './pages/modificar-perfil/modificar-perfil.component';
 import { VisualizarReporteComponent } from './pages/visualizar-reporte/visualizar-reporte.component';
-import { AgregarCotizacionComponent } from './pages/agregar-cotizacion/agregar-cotizacion.component'
+import { AgregarCotizacionComponent } from './pages/agregar-cotizacion/agregar-cotizacion.component';
 
 @NgModule({
   declarations: [
