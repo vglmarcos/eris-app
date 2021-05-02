@@ -130,6 +130,10 @@
     background-color: var(--primary-color);
 }
 
+tr:hover{
+    background-color: #50789c;
+}
+
 .border-radius-first {
     border-radius: var(--radius-table) 0 0 0;
 }
@@ -140,12 +144,8 @@
 
 .table-cotizacion table tbody tr {
     height: 40px;
+    cursor: pointer;
 }
-
-.table-cotizacion table tbody tr:nth-child(even) {
-    background-color: var(--secondary-color-2);
-}
-
 
 .center-text {
     text-align: center;

@@ -100,78 +100,72 @@ button:hover {
     background-color: #50789c;
 }
 
-table {
-    display: block;
-    height: 300px;
+
+.tabla-producto {
+    display: flex;
+    margin-top: 10px;
     width: 100%;
-    padding: 0;
     background-color: var(--secondary-color);
-    border-radius: 6px;
+    height: 300px;
+    border-radius: var(--radius-table);
+    max-height: 300px;
     overflow: auto;
     overflow-x: hidden;
-    scrollbar-highlight-color: blueviolet;
-    scrollbar-color: var(--primary-color);
-    outline: none;
-    cursor: pointer;
-    -webkit-box-shadow: 6px 5px 8px -3px rgba(0,0,0,0.5); 
-    box-shadow: 6px 5px 8px -3px rgba(0,0,0,0.5);
-    font-size: 1.6rem;
-    size: 300px;
-    border-collapse: collapse;
 }
 
-table::-webkit-scrollbar{
+.tabla-producto::-webkit-scrollbar{
     width: 8px;     /* Tamaño del scroll en vertical */
     height: 100%;    /* Tamaño del scroll en horizontal */ 
 }
 
-table::-webkit-scrollbar-thumb {
+.tabla-producto::-webkit-scrollbar-thumb {
     background: #50789c;
     border-radius: 4px;
 }
 
-table::-webkit-scrollbar-thumb:hover{
+.tabla-producto::-webkit-scrollbar-thumb:hover{
     box-shadow: 6px 5px 8px -3px rgba(0,0,0,0.5);
     background-color: #50789c;
 }
 
-table::-webkit-scrollbar-thumb:active {
+.tabla-producto::-webkit-scrollbar-thumb:active {
     background-color: var(--primary-color);
 }
 
-table tr{
-    height: 44px;
+.tabla-producto table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.2rem;
 }
 
-table th {
+.tabla-producto table thead tr {
+    height: 40px;
     background-color: var(--primary-color);
-    vertical-align: middle;
-}
-
-.th1 {
-    width:  8% !important; 
-}
-
-.th2 {
-    width: 52% !important;
-}
-
-.th3 {
-    width: 20% !important;
-}
-
-.th4{
-    width: 20% !important;
 }
 
 tr:hover{
     background-color: #50789c;
 }
 
-table tr td{
-    padding-left: 10px;
-    padding-right: 10px;
-    height: 44px !important;
+.border-radius-first {
+    border-radius: var(--radius-table) 0 0 0;
+}
+
+.border-radius-last {
+    border-radius: 0 var(--radius-table) 0 0;
+}
+
+.tabla-producto table tbody tr {
+    height: 40px;
+    cursor: pointer;
+}
+
+.text-normal {
+    font-weight: 400;
+}
+
+.center-text {
+    text-align: center;
 }
 
 
