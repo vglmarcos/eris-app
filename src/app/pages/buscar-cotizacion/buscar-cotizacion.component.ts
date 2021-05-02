@@ -8,11 +8,23 @@ import { COTIZACIONES } from './cotizaciones';
 })
 export class BuscarCotizacionComponent implements OnInit {
 
-  private cotizaciones = COTIZACIONES;
+  public cotizaciones = COTIZACIONES;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit() {
+
+  }
+
+  onSubmitModificar() {
+
+  }
+
+  onSubmitNuevo() {
+    
   }
 
 }

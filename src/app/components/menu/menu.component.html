@@ -5,7 +5,7 @@
     </div>
 </a>
 <a [routerLink]="['/buscar-cotizacion']">
-    <div class="cotizaciones" [ngClass]="isActive(['/buscar-cotizacion'])">
+    <div class="cotizaciones" [ngClass]="isActive(['/buscar-cotizacion', '/agregar-cotizacion'])">
         <img src="assets/img/carrito.png" alt="Cotizaciones">
         <p>Cotizaciones</p>
     </div>
@@ -29,7 +29,7 @@
     </div>
 </a>
 <a [routerLink]="['/buscar-empleado']">
-    <div class="empleados" [routerLinkActive]="['active-page']">
+    <div class="empleados" [ngClass]="isActive(['/buscar-empleado', '/agregar-empleado'])">
         <img src="assets/img/empleados.png" alt="Empleados">
         <p>Empleados</p>
     </div>

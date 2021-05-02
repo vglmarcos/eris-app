@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { EMPLEADOS } from './empleados';
 
 @Component({
   selector: 'app-buscar-empleado',
@@ -7,6 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./buscar-empleado.component.css']
 })
 export class BuscarEmpleadoComponent implements OnInit {
+
+  public empleados = EMPLEADOS;
 
   constructor(private router: Router) { }
 

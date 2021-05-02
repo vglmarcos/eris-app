@@ -1,0 +1,61 @@
+<div class="page-agregar-cotizacion">
+    <div class="title-container">
+        <p><b>Agregar Cotización</b></p>
+    </div>
+    <div class="row-inputs">
+        <div class="id-input">
+            <label for="id">ID: </label>
+            <input type="text" id="id" placeholder="01">
+        </div>
+        <div class="fecha-p">
+            <p>Fecha: {{fecha | date: 'dd / MM / yyyy'}}</p>
+        </div>
+    </div>
+    <div class="inputs-2-row">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" class="input-nombre">
+        <label for="apellidos">Apellidos</label>
+        <input type="text" id="apellidos" class="input-apellidos">
+    </div>
+    <div class="inputs-2-row">
+        <label for="telefono">Teléfono</label>
+        <input type="text" id="telefono" class="input-nombre">
+        <label for="correo" class="no-wrap">Correo Electrónico</label>
+        <input type="text" id="correo" class="input-apellidos">
+    </div>
+    <div class="table-cotizacion">
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col" class="border-radius-first">ID</th>
+                    <th scope="col">Nombre del Producto</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Precio Unitario</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col" class="border-radius-last">Precio Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of carrito">
+                    <th scope="row" class="center-text text-normal">{{item.id}}</th>
+                    <td>{{item.nombre_producto}}</td>
+                    <td class="center-text">{{item.tipo}}</td>
+                    <td class="center-text">{{item.precio_unitario}}</td>
+                    <td class="center-text">{{item.cantidad}}</td>
+                    <td class="center-text">{{item.precio_total}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="detalles-cotizacion">
+        <p>Pendiente</p>
+        <p>Subtotal: $0</p>
+        <p>IVA: 1.6%</p>
+        <p>Total: $0</p>
+    </div>
+    <div class="row-container">
+        <button (click)="onSubmit()">Eliminar</button>
+        <button (click)="onSubmitModificar()">Agregar</button>
+        <button (click)="onSubmitNuevo()">Guardar</button>
+    </div>
+</div>

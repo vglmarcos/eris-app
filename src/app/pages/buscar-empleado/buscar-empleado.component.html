@@ -26,15 +26,28 @@
         </select>
         <button (click)="onSubmit()">Limpiar filtros</button>
     </div>
-    <div class="row-container">
+    <div class="table-cotizacion">
         <table>
-            <th class="th1">ID</th>
-            <th class="th2">Nombre del Empleado</th>
-            <th class="th3">Usuario</th>
-            <th class="th4">Tipo</th>
-            <th class="th5">Correo</th>
-            <th class="th6">Teléfono</th>
-
+            <thead>
+                <tr>
+                    <th scope="col" class="border-radius-first">ID</th>
+                    <th scope="col">Nombre del Empleado</th>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Coreo Electrónico</th>
+                    <th scope="col" class="border-radius-last">Teléfono</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let empleado of empleados">
+                    <th scope="row" class="center-text text-normal">{{empleado.id}}</th>
+                    <td>{{empleado.nombre_empleado}}</td>
+                    <td class="center-text">{{empleado.usuario}}</td>
+                    <td class="center-text">{{empleado.tipo}}</td>
+                    <td>{{empleado.correo_electronico}}</td>
+                    <td class="center-text">{{empleado.telefono}}</td>
+                </tr>
+            </tbody>
         </table>
     </div>
     <div class="row-container">

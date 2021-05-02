@@ -1,13 +1,5 @@
-.title-container {
-    width: 100%;
-    height: 20%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-
 .title-container p {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
 }
 
 .info-container{
@@ -24,7 +16,7 @@
 
 .info-container p {
     padding-top: 4px;
-    font-size: 1.9rem;
+    font-size: 1.6rem;
 }
 
 .row-container {
@@ -59,7 +51,7 @@
     background: var(--primary-color);
     border: 2px solid var(--stroke-color);
     padding-left: 10px;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
 }
 
 .row-container input, select {
@@ -71,7 +63,7 @@
     background: var(--primary-color);
     border: 2px solid var(--stroke-color);
     padding-left: 10px;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
 }
 
 .column-container input:focus, select:focus {
@@ -86,7 +78,7 @@
     border: 2px solid var(--secondary-color);
 }
 
-.row-container-btn{
+.row-container-btn {
     flex-direction: row;
     display:flex;
     justify-content: space-between;
@@ -108,7 +100,7 @@ button {
     cursor: pointer;
     -webkit-box-shadow: 6px 5px 8px -3px rgba(0,0,0,0.5); 
     box-shadow: 6px 5px 8px -3px rgba(0,0,0,0.5);
-    font-size: 1.7;
+    font-size: 1.6rem;
 }
 
 button:hover {

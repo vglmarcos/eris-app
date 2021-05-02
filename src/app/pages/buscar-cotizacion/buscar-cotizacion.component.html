@@ -1,19 +1,28 @@
-<div class="cotizacion-page">
-    <div class="title">
-        <h4>Búsqueda de Cotizaciones</h4>
+<div class="title-container">
+    <p><b>Búsqueda de Cotizaciones</b></p>
+</div>
+<div class="info-container">
+    <div class="row-container-inputs">
+        <p><b>Consulta</b></p>
+        <input type="text" placeholder="" class="input-space-consulta">
+        <p><b>por:</b></p>
+        <select class="por" name="por" id="" class="select-space-consulta">
+            <option value="1">Nombre</option>
+            <option value="2">Tipo</option>
+        </select>
     </div>
-    <div class="inputs-busqueda">
-        <div class="inputs-row">
-            <label for="consulta">Consulta:</label>
-            <input class="consulta-input" type="text" id="consulta">
-            <label for="por">por</label>
-            <select class="select-consulta" name="por" id="por"></select>
-        </div>
-        <div class="inputs-row">
-            <label class="orden-label" for="orden">Ordeado por:</label>
-            <select class="orden-select" name="orden" id="orden"></select>
-            <select name="tipo" id="tipo"></select>
-        </div>
+    <div class="row-container-inputs">
+        <p><b class="no-wrap">Ordenado por:</b></p>
+        <select class="ordenado" name="" id="" class="select-space-ordenado">
+            <option value="1">ID</option>
+            <option value="2">Nombre</option>
+            <option value="3">Tipo</option>
+            <option value="4">Precio</option>
+        </select>
+        <select class="as-des" name="" id="">
+            <option value="1">Ascendente</option>
+            <option value="2">Descendente</option>
+        </select>
     </div>
     <div class="table-cotizacion">
         <table>
@@ -28,7 +37,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let cotizacion of this.cotizaciones">
+                <tr *ngFor="let cotizacion of cotizaciones">
                     <th scope="row" class="center-text text-normal">{{cotizacion.id}}</th>
                     <td>{{cotizacion.nombre_cliente}}</td>
                     <td class="center-text">{{cotizacion.total}}</td>
@@ -39,9 +48,9 @@
             </tbody>
         </table>
     </div>
-    <div class="buttons-group">
-        <button>Modificar</button>
-        <button>Limpiar filtros</button>
-        <button>Buscar</button>
+    <div class="row-container-btn">
+        <button (click)="onSubmit()">Modificar</button>
+        <button (click)="onSubmitModificar()">Limpiar filtros</button>
+        <button (click)="onSubmitNuevo()">Buscar</button>
     </div>
 </div>
