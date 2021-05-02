@@ -47,16 +47,8 @@ const routes: Routes = [
     component: BuscarReporteComponent
   },
   {
-    path: 'generar-reporte',
-    component: GenerarReporteComponent
-  },
-  {
     path: 'buscar-cotizacion',
     component: BuscarCotizacionComponent
-  },
-  {
-    path: 'buscar-reporte',
-    component: BuscarReporteComponent
   },
   {
     path: 'generar-reporte',
