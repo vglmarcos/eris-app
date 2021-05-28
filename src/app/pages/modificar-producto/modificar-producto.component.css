@@ -27,6 +27,23 @@
     font-size: 1.6rem;
 }
 
+.form{
+    width: 100%;
+    height: 100%;
+    margin: 1%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 0%;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.form p {
+    padding-top: 4px;
+    font-size: 1.6rem;
+}
+
 .row-container{
     flex-direction: row;
     display:flex;

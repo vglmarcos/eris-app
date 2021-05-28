@@ -25,6 +25,13 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SnackBarService } from 'src/app/servicios/snack-bar.service';
+import { HttpClientModule } from '@angular/common/http';
+import { ClienteService } from 'src/app/api/cliente/cliente.service';
+import { CotizacionService } from 'src/app/api/cotizacion/cotizacion.service';
+import { ProductoService } from 'src/app/api/producto/producto.service';
+import { ReciboService } from 'src/app/api/recibo/recibo.service';
+import { ReporteService } from 'src/app/api/reporte/reporte.service';
+import { UsuarioService } from 'src/app/api/usuario/usuario.service';
 
 
 @NgModule({
@@ -55,10 +62,20 @@ import { SnackBarService } from 'src/app/servicios/snack-bar.service';
     MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [
-    SnackBarService
+    SnackBarService,
+    ClienteService,
+    CotizacionService,
+    ProductoService,
+    ReciboService,
+    ReporteService,
+    UsuarioService
   ],
   bootstrap: [AppComponent]
 })

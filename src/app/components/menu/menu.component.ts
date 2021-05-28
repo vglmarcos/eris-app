@@ -21,7 +21,6 @@ export class MenuComponent implements OnInit {
     routes.forEach(route => {
       if(this.router.url === route) {
         active = true;
-        console.log('ok')
       }
     });
 

@@ -2,11 +2,11 @@
     <img src="assets/img/perfil.png" alt="Perfil">
 </div>
 <div class="info-container">
-    <p><b>Usuario:</b> Admin01</p>
-    <p><b>Nombre:</b> Mario Ernesto Páez Trujillo</p>
-    <p><b>Correo electrónico:</b> ejemplo@correo.com</p>
-    <p><b>Teléfono:</b> 81 - 0000 0000</p>
-    <p><b>ID de empleado:</b> 01</p>
+    <p><b>Usuario:</b> {{usuario.usuario}}</p>
+    <p><b>Nombre:</b> {{usuario.nombre}} {{usuario.apellidos}}</p>
+    <p><b>Correo electrónico:</b> {{usuario.correo}}</p>
+    <p><b>Teléfono:</b> {{usuario.telefono}}</p>
+    <p><b>ID de empleado:</b> {{usuario.id}}</p>
     <div class="editar-perfil">
         <button (click)="onSubmitEditar()">
             <img src="assets/img/editar.png" alt="Editar">
