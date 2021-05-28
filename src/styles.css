@@ -89,3 +89,17 @@ app-menu-secundario {
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.snackBarGreen {
+    background-color: 
+    #1DD581 !important;
+    color: #fff !important;
+    opacity: 0.9;
+}
+
+.snackBarRed {
+    background-color: #E53935 !important;
+    color: #fff !important;
+    text-align: center;
+    opacity: 0.9;
+}

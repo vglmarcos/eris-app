@@ -20,6 +20,8 @@ import { VisualizarReporteComponent } from './pages/visualizar-reporte/visualiza
 import { AgregarCotizacionComponent } from './pages/agregar-cotizacion/agregar-cotizacion.component';
 import { CarritoComponent } from './pages/carrito/carrito.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ConfirmarEliminarComponent } from './components/confirmar-eliminar/confirmar-eliminar.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar'
 
 @NgModule({
   declarations: [
@@ -39,14 +41,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ModificarPerfilComponent,
     VisualizarReporteComponent,
     AgregarCotizacionComponent,
-    CarritoComponent
+    CarritoComponent,
+    ConfirmarEliminarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    MatSnackBarModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
