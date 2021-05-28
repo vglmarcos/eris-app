@@ -159,6 +159,10 @@ button:hover {
     background-color: #50789c;
 }
 
+.cotizacion-seleccionada {
+    background-color: var(--primary-color);
+}
+
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: var(--stroke-color);
 }
@@ -190,4 +194,13 @@ button:hover {
 
 .text-normal {
     font-weight: 400;
+}
+
+.disabled-button {
+    background: rgb(138, 138, 138);
+    cursor: default;
+}
+
+.disabled-button:hover {
+    background: rgb(138, 138, 138);
 }

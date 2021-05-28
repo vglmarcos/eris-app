@@ -1,30 +1,30 @@
 <div class="title-container">
     <p><b>Búsqueda de Empleados</b></p>
 </div>
-<div class="info-container">
+<div [formGroup]="consultaFormGroup" class="info-container">
     <div class="row-container">
         <p><b>Consulta</b></p>
-        <input type="text" placeholder="">
+        <input formControlName="consultaCtrl" type="text" id="consulta">
         <p><b>por:</b></p>
-        <select class="por" name="por" id="">
-            <option value="1">Nombre</option>
-            <option value="2">Tipo</option>
+        <select formControlName="porCtrl" class="por" name="por">
+            <option value="Nombre">Nombre</option>
+            <option value="Tipo">Tipo</option>
         </select>
-        <button (click)="onSubmit()">Buscar</button>
+        <button (click)="buscarEmpleados()">Buscar</button>
     </div>
     <div class="row-container">
         <p><b>Ordenado por:</b></p>
-        <select class="ordenado" name="" id="">
-            <option value="1">ID</option>
-            <option value="2">Nombre</option>
-            <option value="3">Usuario</option>
-            <option value="4">Tipo</option>
+        <select formControlName="tipoCtrl" class="ordenado" name="" id="">
+            <option value="ID">ID</option>
+            <option value="Nombre">Nombre</option>
+            <option value="Usuario">Usuario</option>
+            <option value="Tipo">Tipo</option>
         </select>
-        <select class="as-des" name="" id="">
-            <option value="1">Ascendente</option>
-            <option value="2">Descendente</option>
+        <select formControlName="ascDescCtrl" class="as-des" name="" id="">
+            <option value="asc">Ascendente</option>
+            <option value="desc">Descendente</option>
         </select>
-        <button (click)="onSubmit()">Limpiar filtros</button>
+        <button (click)="limpiarFiltros()">Limpiar filtros</button>
     </div>
     <div class="table-cotizacion">
         <table>
@@ -39,19 +39,21 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let empleado of empleados">
-                    <th scope="row" class="center-text text-normal">{{empleado.id}}</th>
-                    <td>{{empleado.nombre_empleado}}</td>
-                    <td class="center-text">{{empleado.usuario}}</td>
-                    <td class="center-text">{{empleado.tipo}}</td>
-                    <td>{{empleado.correo_electronico}}</td>
-                    <td class="center-text">{{empleado.telefono}}</td>
+                <tr [class]="(usuarioSelect === usuario.id) ? 'cotizacion-seleccionada' : ''"
+                    (click)="seleccionarUsuario(usuario)" *ngFor="let usuario of usuarios">
+                    <th scope="row" class="center-text text-normal">{{usuario.id}}</th>
+                    <td>{{usuario.nombre}}</td>
+                    <td class="center-text">{{usuario.usuario}}</td>
+                    <td class="center-text">{{usuario.tipo}}</td>
+                    <td>{{usuario.correo}}</td>
+                    <td class="center-text">{{usuario.telefono}}</td>
                 </tr>
             </tbody>
         </table>
     </div>
     <div class="row-container">
-        <button (click)="onSubmit()">Eliminar</button>
+        <button [disabled]="!usuarioSelect" [class]="!usuarioSelect ? 'disabled-button' : ''"
+            (click)="onSubmit()">Eliminar</button>
         <button (click)="onSubmit()">Modificar</button>
         <button (click)="onSubmit()">Nuevo</button>
     </div>
