@@ -19,6 +19,7 @@ import { ModificarPerfilComponent } from './pages/modificar-perfil/modificar-per
 import { VisualizarReporteComponent } from './pages/visualizar-reporte/visualizar-reporte.component';
 import { AgregarCotizacionComponent } from './pages/agregar-cotizacion/agregar-cotizacion.component';
 import { CarritoComponent } from './pages/carrito/carrito.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { CarritoComponent } from './pages/carrito/carrito.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
