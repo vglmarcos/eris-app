@@ -22,6 +22,10 @@ import { CarritoComponent } from './pages/carrito/carrito.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConfirmarEliminarComponent } from './components/confirmar-eliminar/confirmar-eliminar.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar'
+import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SnackBarService } from 'src/app/servicios/snack-bar.service';
+
 
 @NgModule({
   declarations: [
@@ -47,10 +51,14 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSnackBarModule
   ],
   providers: [
-    MatSnackBarModule
+    SnackBarService
   ],
   bootstrap: [AppComponent]
 })
