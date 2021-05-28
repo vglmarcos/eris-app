@@ -1,29 +1,29 @@
 <div class="title-container">
     <p><b>Modificar Perfil</b></p>
 </div>
-<div class="info-container">
+<form [formGroup]="editarUsuarioFormGroup" class="info-container">
     <div class="row-container">
         <p><b>Usuario:</b></p>
-        <input type="text" placeholder="">
+        <input formControlName="usuarioCtrl" type="text" placeholder="">
     </div>
     <div class="row-container">
         <p><b>Contraseña:</b></p>
-        <input type="text" placeholder="">
+        <input formControlName="contraCtrl" type="password" placeholder="">
     </div>
     <div class="row-container">
         <p><b>Confirmar Contraseña:</b></p>
-        <input type="text" placeholder="">
+        <input formControlName="contraConfirmCtrl" type="password" placeholder="">
     </div>
     <div class="row-container">
         <p><b>Correo:</b></p>
-        <input type="text" placeholder="">
+        <input formControlName="correoCtrl" type="text" placeholder="">
     </div>
     <div class="row-container">
         <p><b>Teléfono:</b></p>
-        <input type="text" placeholder="">
+        <input formControlName="telefonoCtrl" type="text" placeholder="">
     </div>
     <div class="row-container-btn">
-        <button (click)="onSubmitCancelar()">Cancelar</button>
-        <button (click)="onSubmitGuardar()">Guardar</button>
+        <button type="button" (click)="onSubmitCancelar()">Cancelar</button>
+        <button type="button" (click)="onSubmitGuardar()">Guardar</button>
     </div>
-</div>
+</form>
