@@ -189,3 +189,16 @@
     transition-duration: 0.2s;
     background-color: #50789c;
 }
+
+.cotizacion-seleccionada {
+    background-color: var(--primary-color);
+}
+
+.disabled-button {
+    background: rgb(138, 138, 138) !important;
+    cursor: default !important;
+}
+
+.disabled-button:hover {
+    background: rgb(138, 138, 138) !important;
+}

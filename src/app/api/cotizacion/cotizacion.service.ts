@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class CotizacionService {
 
-  private basePath: string = 'http://localhost:3000';
+  private basePath: string = 'https://api-rest-eris.herokuapp.com';
 
   constructor(private httpClient: HttpClient) { }
 

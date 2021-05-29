@@ -1,34 +1,32 @@
 <div class="title-container">
     <p><b>Agregar al carrito</b></p>
 </div>
-<div class="info-container">
+<div [formGroup]="agregarFormGroup" class="info-container">
     <div class="row-container">
         <label for="tipo">Tipo:</label>
-        <select name="Tipo" id="tipo" class="input-margin-2">
-            <option value="1">Reparación</option>
-            <option value="2">Pieza</option>
-            <option value="3">Herramienta</option>
+        <select formControlName="tipoCtrl" name="Tipo" id="tipo" class="input-margin-2">
+            <option value="Servicio">Servicio</option>
+            <option value="Pieza">Pieza</option>
+            <option value="Herramienta">Herramienta</option>
         </select>
         <label for="id">ID:</label>
-        <input type="text" id="id" class="input-margin-1">
+        <input formControlName="idCtrl" type="text" id="id" class="input-margin-1">
     </div>
     <div class="row-container">
         <label for="producto">Producto:</label>
-        <select name="Producto" id="producto" class="input-margin-1">
-            <option value="1">Producto 1</option>
-            <option value="2">Producto 2</option>
-            <option value="3">Producto 3</option>
+        <select formControlName="productoCtrl" name="Producto" id="producto" class="input-margin-1">
+            <option *ngFor="let opcion of productosOpciones" [value]="opcion.id">{{opcion.nombre}}</option>
         </select>
     </div>
     <div class="row-container">
         <label for="precio-unitario" class="no-wrap">Precio Unitario:</label>
-        <input type="text" placeholder="$" id="precio-unitario" class="input-margin-2">
+        <input formControlName="precioCtrl" type="text" placeholder="$" id="precio-unitario" class="input-margin-2">
         <label for="cantidad">Cantidad:</label>
-        <input type="text" id="cantidad" class="input-margin-1">
+        <input type="number" formControlName="cantidadCtrl" id="cantidad" class="input-margin-1">
     </div>
     <div class="row-container">
         <label for="subtotal">Subtotal:</label>
-        <input type="text" placeholder="$" id="subtotal" class="input-margin-1">
+        <input formControlName="subtotalCtrl" type="text" placeholder="$" id="subtotal" class="input-margin-1">
     </div>
     <div class="row-container-btn">
         <button (click)="onSubmitCancelar()">Cancelar</button>

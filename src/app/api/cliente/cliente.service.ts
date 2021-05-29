@@ -3,12 +3,17 @@ import { HttpClient } from '@angular/common/http';
 import { ICliente } from 'src/app/models/ICliente';
 import { Observable } from 'rxjs';
 
+export interface respuesta {
+  res: string,
+  cliente: ICliente
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class ClienteService {
 
-  private basePath: string = 'http://localhost:3000';
+  private basePath: string = 'https://api-rest-eris.herokuapp.com';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -17,7 +22,7 @@ export class ClienteService {
   }
 
   agregarClientePost(cliente: ICliente) {
-    return this.httpClient.request('post', `${this.basePath}/api/cliente/agregarCliente`, {
+    return this.httpClient.request<respuesta>('post', `${this.basePath}/api/cliente/agregarCliente`, {
       body: cliente
     });
   }

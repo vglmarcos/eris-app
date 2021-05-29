@@ -35,6 +35,10 @@ import { EditarEmpleadoComponent } from 'src/app/pages/editar-empleado/editar-em
 import { AcercaDeComponent } from 'src/app/pages/acerca-de/acerca-de.component';
 import { MatButtonModule } from '@angular/material/button';
 
+import { CarritoService } from 'src/app/servicios/carrito/carrito.service';
+
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,7 +74,8 @@ import { MatButtonModule } from '@angular/material/button';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSlideToggleModule
   ],
   providers: [
     SnackBarService,
@@ -79,7 +84,8 @@ import { MatButtonModule } from '@angular/material/button';
     ProductoService,
     ReciboService,
     ReporteService,
-    UsuarioService
+    UsuarioService,
+    CarritoService
   ],
   bootstrap: [AppComponent]
 })

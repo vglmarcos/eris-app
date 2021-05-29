@@ -6,6 +6,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SnackBarService } from 'src/app/servicios/snack-bar.service';
 import { CotizacionService } from 'src/app/api/cotizacion/cotizacion.service';
 import { IUsuario } from 'src/app/models/IUsuario';
+import { ICliente } from 'src/app/models/ICliente';
+import { ClienteService } from 'src/app/api/cliente/cliente.service';
 
 @Component({
   selector: 'app-buscar-cotizacion',
@@ -18,9 +20,9 @@ export class BuscarCotizacionComponent implements OnInit {
 
   public cotizaciones: ICotizacion[];
 
-  public usuariosTotales: IUsuario[];
-
   public usuarios: IUsuario[];
+
+  public clientes: ICliente[];
 
   public cotizacionSelect: number;
 
@@ -47,6 +49,7 @@ export class BuscarCotizacionComponent implements OnInit {
     private router: Router,
     private cotizacionService: CotizacionService,
     private usuarioService: UsuarioService,
+    private clienteService: ClienteService,
     private _formBuilder: FormBuilder,
     public snackBarService: SnackBarService
   ) {
@@ -59,11 +62,27 @@ export class BuscarCotizacionComponent implements OnInit {
     this.cotizacionService.obtenerCotizacionesGet().subscribe(cotizaciones => {
       this.cotizacionesTotales = cotizaciones;
       this.cotizaciones = this.cotizacionesTotales;
-      this.usuarioService.obtenerUsuariosGet().subscribe(usuarios => {
-        this.usuariosTotales = usuarios;
-        this.usuarios = this.usuariosTotales;
-      });
     });
+    this.clienteService.obtenerClientesGet().subscribe(clientes => {
+      this.clientes = clientes;
+    });
+    this.usuarioService.obtenerUsuariosGet().subscribe(usuarios => {
+      this.usuarios = usuarios;
+    });
+  }
+
+  obtenerNombreUsuario(id: number) {
+    const usuario = this.usuarios.find(usuarios => {
+      return usuarios.id === id
+    });
+    return usuario.usuario;
+  }
+
+  obtenerNombreCliente(id: number) {
+    const cliente = this.clientes.find(cliente => {
+      return cliente.id === id
+    });
+    return cliente.nombre;
   }
 
   ngOnInit(): void {
@@ -106,7 +125,7 @@ export class BuscarCotizacionComponent implements OnInit {
     });
   }
 
-  seleccionarUsuario(cotizacion: ICotizacion) {
+  seleccionarCotizacion(cotizacion: ICotizacion) {
     this.cotizacionSelect = cotizacion.id;
   }
 
@@ -116,12 +135,294 @@ export class BuscarCotizacionComponent implements OnInit {
     this.consultaFormGroup.controls['tipoCtrl'].setValue('ID');
     this.consultaFormGroup.controls['ascDescCtrl'].setValue('asc');
     this.cotizacionSelect = null;
-    this.buscarEmpleados();
+    this.buscarCotizaciones();
   }
 
-  buscarEmpleados() {
-
-    if (this.usuarios.length === 0) {
+  buscarCotizaciones() {
+    let resultados;
+    let resultadosOrdenados;
+    switch (this.filtros.por) {
+      case 'Nombre':
+        switch (this.filtros.ordenado) {
+          case 'ID':
+            resultados = this.cotizacionesTotales.filter((cotizacion) => {
+              return this.obtenerNombreCliente(cotizacion.id_cliente).toLowerCase().startsWith(String(this.filtros.consulta).toLowerCase());
+            });
+            resultadosOrdenados = resultados.sort((cot1, cot2) => {
+              return cot1.id - cot2.id;
+            });
+            if (this.filtros.orden === 'asc') {
+              this.resultadoFiltrado = resultadosOrdenados;
+            } else {
+              this.resultadoFiltrado = resultadosOrdenados.reverse();
+            }
+            break;
+          case 'Nombre':
+            resultados = this.cotizacionesTotales.filter((cotizacion) => {
+              return this.obtenerNombreCliente(cotizacion.id_cliente).toLowerCase().startsWith(String(this.filtros.consulta).toLowerCase());
+            });
+            resultadosOrdenados = resultados.sort((cot1, cot2) => {
+              if (this.obtenerNombreCliente(cot1.id_cliente) > this.obtenerNombreCliente(cot2.id_cliente)) {
+                return 1;
+              }
+              if (this.obtenerNombreCliente(cot1.id_cliente) < this.obtenerNombreCliente(cot2.id_cliente)) {
+                return -1;
+              }
+              // a must be equal to b
+              return 0;
+            });
+            if (this.filtros.orden === 'asc') {
+              this.resultadoFiltrado = resultadosOrdenados;
+            } else {
+              this.resultadoFiltrado = resultadosOrdenados.reverse();
+            }
+            break;
+          case 'Usuario':
+            resultados = this.cotizacionesTotales.filter((cotizacion) => {
+              return this.obtenerNombreCliente(cotizacion.id_cliente).toLowerCase().startsWith(String(this.filtros.consulta).toLowerCase());
+            });
+            resultadosOrdenados = resultados.sort((cot1, cot2) => {
+              if (this.obtenerNombreUsuario(cot1.id_empleado) > this.obtenerNombreUsuario(cot2.id_empleado)) {
+                return 1;
+              }
+              if (this.obtenerNombreUsuario(cot1.id_empleado) < this.obtenerNombreUsuario(cot2.id_empleado)) {
+                return -1;
+              }
+              // a must be equal to b
+              return 0;
+            });
+            if (this.filtros.orden === 'asc') {
+              this.resultadoFiltrado = resultadosOrdenados;
+            } else {
+              this.resultadoFiltrado = resultadosOrdenados.reverse();
+            }
+            break;
+          case 'Estado':
+            resultados = this.cotizacionesTotales.filter((cotizacion) => {
+              return this.obtenerNombreCliente(cotizacion.id_cliente).toLowerCase().startsWith(String(this.filtros.consulta).toLowerCase());
+            });
+            resultadosOrdenados = resultados.sort((cot1, cot2) => {
+              if (cot1.estado > cot2.estado) {
+                return 1;
+              }
+              if (cot1.estado < cot2.estado) {
+                return -1;
+              }
+              // a must be equal to b
+              return 0;
+            });
+            if (this.filtros.orden === 'asc') {
+              this.resultadoFiltrado = resultadosOrdenados;
+            } else {
+              this.resultadoFiltrado = resultadosOrdenados.reverse();
+            }
+            break
+          case 'Total':
+            resultados = this.cotizacionesTotales.filter((cotizacion) => {
+              return this.obtenerNombreCliente(cotizacion.id_cliente).toLowerCase().startsWith(String(this.filtros.consulta).toLowerCase());
+            });
+            resultadosOrdenados = resultados.sort((cot1, cot2) => {
+              return cot1.total - cot2.total;
+            });
+            if (this.filtros.orden === 'asc') {
+              this.resultadoFiltrado = resultadosOrdenados;
+            } else {
+              this.resultadoFiltrado = resultadosOrdenados.reverse();
+            }
+            break
+          default:
+            break
+        }
+        break;
+      case 'Estado':
+        switch (this.filtros.ordenado) {
+          case 'ID':
+            resultados = this.cotizacionesTotales.filter((cotizacion) => {
+              return cotizacion.estado.toLowerCase().startsWith(String(this.filtros.consulta).toLowerCase());
+            });
+            resultadosOrdenados = resultados.sort((cot1, cot2) => {
+              return cot1.id - cot2.id;
+            });
+            if (this.filtros.orden === 'asc') {
+              this.resultadoFiltrado = resultadosOrdenados;
+            } else {
+              this.resultadoFiltrado = resultadosOrdenados.reverse();
+            }
+            break;
+          case 'Nombre':
+            resultados = this.cotizacionesTotales.filter((cotizacion) => {
+              return cotizacion.estado.toLowerCase().startsWith(String(this.filtros.consulta).toLowerCase());
+            });
+            resultadosOrdenados = resultados.sort((cot1, cot2) => {
+              if (this.obtenerNombreCliente(cot1.id_cliente) > this.obtenerNombreCliente(cot2.id_cliente)) {
+                return 1;
+              }
+              if (this.obtenerNombreCliente(cot1.id_cliente) < this.obtenerNombreCliente(cot2.id_cliente)) {
+                return -1;
+              }
+              // a must be equal to b
+              return 0;
+            });
+            if (this.filtros.orden === 'asc') {
+              this.resultadoFiltrado = resultadosOrdenados;
+            } else {
+              this.resultadoFiltrado = resultadosOrdenados.reverse();
+            }
+            break;
+          case 'Usuario':
+            resultados = this.cotizacionesTotales.filter((cotizacion) => {
+              return cotizacion.estado.toLowerCase().startsWith(String(this.filtros.consulta).toLowerCase());
+            });
+            resultadosOrdenados = resultados.sort((cot1, cot2) => {
+              if (this.obtenerNombreUsuario(cot1.id_empleado) > this.obtenerNombreUsuario(cot2.id_empleado)) {
+                return 1;
+              }
+              if (this.obtenerNombreUsuario(cot1.id_empleado) < this.obtenerNombreUsuario(cot2.id_empleado)) {
+                return -1;
+              }
+              // a must be equal to b
+              return 0;
+            });
+            if (this.filtros.orden === 'asc') {
+              this.resultadoFiltrado = resultadosOrdenados;
+            } else {
+              this.resultadoFiltrado = resultadosOrdenados.reverse();
+            }
+            break;
+          case 'Estado':
+            resultados = this.cotizacionesTotales.filter((cotizacion) => {
+              return cotizacion.estado.toLowerCase().startsWith(String(this.filtros.consulta).toLowerCase());
+            });
+            resultadosOrdenados = resultados.sort((cot1, cot2) => {
+              if (cot1.estado > cot2.estado) {
+                return 1;
+              }
+              if (cot1.estado < cot2.estado) {
+                return -1;
+              }
+              // a must be equal to b
+              return 0;
+            });
+            if (this.filtros.orden === 'asc') {
+              this.resultadoFiltrado = resultadosOrdenados;
+            } else {
+              this.resultadoFiltrado = resultadosOrdenados.reverse();
+            }
+            break
+          case 'Total':
+            resultados = this.cotizacionesTotales.filter((cotizacion) => {
+              return cotizacion.estado.toLowerCase().startsWith(String(this.filtros.consulta).toLowerCase());
+            });
+            resultadosOrdenados = resultados.sort((cot1, cot2) => {
+              return cot1.total - cot2.total;
+            });
+            if (this.filtros.orden === 'asc') {
+              this.resultadoFiltrado = resultadosOrdenados;
+            } else {
+              this.resultadoFiltrado = resultadosOrdenados.reverse();
+            }
+            break
+          default:
+            break
+        }
+        break;
+      case 'Usuario':
+        switch (this.filtros.ordenado) {
+          case 'ID':
+            resultados = this.cotizacionesTotales.filter((cotizacion) => {
+              return this.obtenerNombreUsuario(cotizacion.id_empleado).toLowerCase().startsWith(String(this.filtros.consulta).toLowerCase());
+            });
+            resultadosOrdenados = resultados.sort((cot1, cot2) => {
+              return cot1.id - cot2.id;
+            });
+            if (this.filtros.orden === 'asc') {
+              this.resultadoFiltrado = resultadosOrdenados;
+            } else {
+              this.resultadoFiltrado = resultadosOrdenados.reverse();
+            }
+            break;
+          case 'Nombre':
+            resultados = this.cotizacionesTotales.filter((cotizacion) => {
+              return this.obtenerNombreUsuario(cotizacion.id_empleado).toLowerCase().startsWith(String(this.filtros.consulta).toLowerCase());
+            });
+            resultadosOrdenados = resultados.sort((cot1, cot2) => {
+              if (this.obtenerNombreCliente(cot1.id_cliente) > this.obtenerNombreCliente(cot2.id_cliente)) {
+                return 1;
+              }
+              if (this.obtenerNombreCliente(cot1.id_cliente) < this.obtenerNombreCliente(cot2.id_cliente)) {
+                return -1;
+              }
+              // a must be equal to b
+              return 0;
+            });
+            if (this.filtros.orden === 'asc') {
+              this.resultadoFiltrado = resultadosOrdenados;
+            } else {
+              this.resultadoFiltrado = resultadosOrdenados.reverse();
+            }
+            break;
+          case 'Usuario':
+            resultados = this.cotizacionesTotales.filter((cotizacion) => {
+              return this.obtenerNombreUsuario(cotizacion.id_empleado).toLowerCase().startsWith(String(this.filtros.consulta).toLowerCase());
+            });
+            resultadosOrdenados = resultados.sort((cot1, cot2) => {
+              if (this.obtenerNombreUsuario(cot1.id_empleado) > this.obtenerNombreUsuario(cot2.id_empleado)) {
+                return 1;
+              }
+              if (this.obtenerNombreUsuario(cot1.id_empleado) < this.obtenerNombreUsuario(cot2.id_empleado)) {
+                return -1;
+              }
+              // a must be equal to b
+              return 0;
+            });
+            if (this.filtros.orden === 'asc') {
+              this.resultadoFiltrado = resultadosOrdenados;
+            } else {
+              this.resultadoFiltrado = resultadosOrdenados.reverse();
+            }
+            break;
+          case 'Estado':
+            resultados = this.cotizacionesTotales.filter((cotizacion) => {
+              return this.obtenerNombreUsuario(cotizacion.id_empleado).toLowerCase().startsWith(String(this.filtros.consulta).toLowerCase());
+            });
+            resultadosOrdenados = resultados.sort((cot1, cot2) => {
+              if (cot1.estado > cot2.estado) {
+                return 1;
+              }
+              if (cot1.estado < cot2.estado) {
+                return -1;
+              }
+              // a must be equal to b
+              return 0;
+            });
+            if (this.filtros.orden === 'asc') {
+              this.resultadoFiltrado = resultadosOrdenados;
+            } else {
+              this.resultadoFiltrado = resultadosOrdenados.reverse();
+            }
+            break
+          case 'Total':
+            resultados = this.cotizacionesTotales.filter((cotizacion) => {
+              return this.obtenerNombreUsuario(cotizacion.id_empleado).toLowerCase().startsWith(String(this.filtros.consulta).toLowerCase());
+            });
+            resultadosOrdenados = resultados.sort((cot1, cot2) => {
+              return cot1.total - cot2.total;
+            });
+            if (this.filtros.orden === 'asc') {
+              this.resultadoFiltrado = resultadosOrdenados;
+            } else {
+              this.resultadoFiltrado = resultadosOrdenados.reverse();
+            }
+            break
+          default:
+            break
+        }
+        break;
+      default:
+        break;
+    }
+    this.cotizaciones = this.resultadoFiltrado;
+    if (this.cotizaciones.length === 0) {
       this.snackBarService.redSnackBar('No se encontraron resultados.');
     }
   }
@@ -130,7 +431,7 @@ export class BuscarCotizacionComponent implements OnInit {
     this.cotizacionSelect = null;
   }
 
-  eliminarEmpleado() {
+  eliminarCotizacion() {
     const cotizacion = this.cotizacionesTotales.find(cotizacion => cotizacion.id === this.cotizacionSelect);
     this.cotizacionService.eliminarCotizacionDelete(cotizacion).subscribe(res => {
       this.snackBarService.greenSnackBar('Cotización eliminada con éxito.');
@@ -141,15 +442,7 @@ export class BuscarCotizacionComponent implements OnInit {
     }, error => this.snackBarService.redSnackBar('Ha ocurrido un error al eliminar la cotización.'));
   }
 
-  onSubmit() {
-
-  }
-
-  onSubmitModificar() {
-
-  }
-
-  onSubmitNuevo() {
-    
+  doubleClick() {
+    console.log('sos')
   }
 }

@@ -1,11 +1,11 @@
-<div class="page-agregar-cotizacion">
+<div [formGroup]="clienteFormGroup" class="page-agregar-cotizacion">
     <div class="title-container">
         <p><b>Agregar Cotización</b></p>
     </div>
     <div class="row-inputs">
         <div class="id-input">
             <label for="id">ID: </label>
-            <input type="text" id="id" placeholder="01">
+            <input disabled formControlName="idCtrl" type="text" id="id">
         </div>
         <div class="fecha-p">
             <p>Fecha: {{fecha | date: 'dd / MM / yyyy'}}</p>
@@ -13,18 +13,18 @@
     </div>
     <div class="inputs-2-row">
         <label for="nombre">Nombre</label>
-        <input type="text" id="nombre" class="input-nombre">
+        <input formControlName="nombreCtrl" type="text" id="nombre" class="input-nombre">
         <label for="apellidos">Apellidos</label>
-        <input type="text" id="apellidos" class="input-apellidos">
+        <input formControlName="apellidosCtrl" type="text" id="apellidos" class="input-apellidos">
     </div>
     <div class="inputs-2-row">
         <label for="telefono">Teléfono</label>
-        <input type="text" id="telefono" class="input-nombre">
+        <input formControlName="telefonoCtrl" type="text" id="telefono" class="input-nombre">
         <label for="correo" class="no-wrap">Correo Electrónico</label>
-        <input type="text" id="correo" class="input-apellidos">
+        <input formControlName="correoCtrl" type="text" id="correo" class="input-apellidos">
     </div>
     <div class="table-cotizacion">
-        <table>
+        <table *ngIf="!loadingProduct">
             <thead>
                 <tr>
                     <th scope="col" class="border-radius-first">ID</th>
@@ -36,25 +36,29 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of carrito">
-                    <th scope="row" class="center-text text-normal">{{item.id}}</th>
-                    <td>{{item.nombre_producto}}</td>
-                    <td class="center-text">{{item.tipo}}</td>
-                    <td class="center-text">{{item.precio_unitario}}</td>
+                <tr [class]="(productoSeleccionado === item.id_producto) ? 'cotizacion-seleccionada' : ''"
+                    (click)="selectProducto(item)" *ngFor="let item of carrito">
+                    <th scope="row" class="center-text text-normal">{{item.id_producto}}</th>
+                    <td>{{obtenerProductoByID(item.id_producto).nombre}}</td>
+                    <td class="center-text">{{obtenerProductoByID(item.id_producto).tipo}}</td>
+                    <td class="center-text">{{obtenerProductoByID(item.id_producto).precio}}</td>
                     <td class="center-text">{{item.cantidad}}</td>
-                    <td class="center-text">{{item.precio_total}}</td>
+                    <td class="center-text">{{item.subtotal}}</td>
                 </tr>
             </tbody>
         </table>
     </div>
     <div class="detalles-cotizacion">
-        <p>Pendiente</p>
-        <p>Subtotal: $0</p>
-        <p>IVA: 1.6%</p>
-        <p>Total: $0</p>
+        <mat-slide-toggle formControlName="checkedCtrl">
+            Completar Venta
+        </mat-slide-toggle>
+        <p>Subtotal: {{subTotalCot}}</p>
+        <p>IVA: 16%</p>
+        <p>Total: {{totalCot}}</p>
     </div>
     <div class="row-container">
-        <button (click)="onSubmitEliminar()">Eliminar</button>
+        <button [disabled]="!productoSeleccionado" [class]="!productoSeleccionado ? 'disabled-button' : ''"
+            (click)="onSubmitEliminar()">Eliminar</button>
         <button (click)="onSubmitAgregar()">Agregar</button>
         <button (click)="onSubmitGuardar()">Guardar</button>
     </div>

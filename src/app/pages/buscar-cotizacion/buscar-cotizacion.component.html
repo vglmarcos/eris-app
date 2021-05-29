@@ -9,7 +9,6 @@
         <select class="por" name="por" id="" class="consulta-select">
             <option value="Nombre">Nombre</option>
             <option value="Estado">Estado</option>
-            <option value="Total">Total</option>
             <option value="Usuario">Usuario</option>
         </select>
     </div>
@@ -28,7 +27,7 @@
         </select>
     </div>
     <div class="tabla-producto">
-        <table>
+        <table *ngIf="cotizaciones && usuarios && clientes">
             <thead>
                 <tr>
                     <th scope="col" class="border-radius-first">ID</th>
@@ -40,20 +39,22 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let cotizacion of cotizaciones">
+                <tr ng-dblclick="doubleClick()" [class]="(cotizacionSelect === cotizacion.id) ? 'cotizacion-seleccionada' : ''"
+                    (click)="seleccionarCotizacion(cotizacion)" *ngFor="let cotizacion of cotizaciones">
                     <th scope="row" class="center-text text-normal">{{cotizacion.id}}</th>
-                    <td>{{cotizacion.nombre_cliente}}</td>
+                    <td>{{obtenerNombreCliente(cotizacion.id_cliente)}}</td>
                     <td class="center-text">{{cotizacion.total}}</td>
                     <td class="center-text">{{cotizacion.estado}}</td>
-                    <td class="center-text">{{cotizacion.fecha}}</td>
-                    <td class="center-text">{{cotizacion.usuario}}</td>
+                    <td class="center-text">{{cotizacion.createdAt | date: 'dd/MM/yyyy'}}</td>
+                    <td class="center-text">{{obtenerNombreUsuario(cotizacion.id_empleado)}}</td>
                 </tr>
             </tbody>
         </table>
     </div>
     <div class="row-container">
-        <button (click)="onSubmit()">Eliminar</button>
-        <button (click)="onSubmitModificar()">Limpiar Filtros</button>
-        <button (click)="onSubmitNuevo()">Buscar</button>
+        <button [disabled]="!cotizacionSelect" [class]="!cotizacionSelect ? 'disabled-button' : ''"
+            (click)="eliminarCotizacion()">Eliminar</button>
+        <button (click)="limpiarFiltros()">Limpiar Filtros</button>
+        <button (click)="buscarCotizaciones()">Buscar</button>
     </div>
 </div>
