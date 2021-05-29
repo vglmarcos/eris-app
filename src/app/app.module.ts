@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -32,7 +31,9 @@ import { ProductoService } from 'src/app/api/producto/producto.service';
 import { ReciboService } from 'src/app/api/recibo/recibo.service';
 import { ReporteService } from 'src/app/api/reporte/reporte.service';
 import { UsuarioService } from 'src/app/api/usuario/usuario.service';
-import {MatButtonModule} from '@angular/material/button';
+import { EditarEmpleadoComponent } from 'src/app/pages/editar-empleado/editar-empleado.component';
+import { AcercaDeComponent } from 'src/app/pages/acerca-de/acerca-de.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,9 @@ import {MatButtonModule} from '@angular/material/button';
     VisualizarReporteComponent,
     AgregarCotizacionComponent,
     CarritoComponent,
-    ConfirmarEliminarComponent
+    ConfirmarEliminarComponent,
+    EditarEmpleadoComponent,
+    AcercaDeComponent
   ],
   imports: [
     BrowserModule,
