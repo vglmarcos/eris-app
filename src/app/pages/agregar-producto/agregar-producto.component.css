@@ -75,6 +75,11 @@
     padding-top: 20px;
 }
 
+input.remove-flechitas::-webkit-outer-spin-button,
+input.remove-flechitas::-webkit-inner-spin-button {
+    display: none;
+}
+
 button {
     background: var(--secondary-color);
     width: 40%;

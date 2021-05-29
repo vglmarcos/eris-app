@@ -34,7 +34,9 @@ export class MenuSecundarioComponent implements OnInit {
       const usuarioLogout = usuarios.find(user => user.estado == true);
       usuarioLogout.estado = false;
       console.log(usuarioLogout.estado);
-      this.usuarioService.editarUsuarioPut(usuarioLogout); // No jala cmabiar el estado
+      this.usuarioService.editarUsuarioPut(usuarioLogout).subscribe(res => {
+        
+      }); // No jala cmabiar el estado
     })
     this.snackBarService.redSnackBar('Ha cerrado sesión correctamente');
   }

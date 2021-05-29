@@ -10,14 +10,14 @@
         <div class="row-container">
             <p><b>Tipo:</b></p>
             <select name="Tipo" id="" formControlName="typeCtrl" required>
-                <option value="1">Reparación</option>
-                <option value="2">Pieza</option>
-                <option value="3">Herramienta</option>
+                <option value="Servicio">Servicio</option>
+                <option value="Pieza">Pieza</option>
+                <option value="Herramienta">Herramienta</option>
             </select>
         </div>
         <div class="row-container">
             <p><b>Precio:</b></p>
-            <input type="number" placeholder="$" formControlName="priceCtrl" required >
+            <input class="remove-flechitas" type="number" placeholder="$" formControlName="priceCtrl" required >
         </div>
         <div class="row-container-btn">
             <button (click)="onSubmitCancelar()">Cancelar</button>

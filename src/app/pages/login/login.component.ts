@@ -42,16 +42,17 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.usuarioService.obtenerUsuariosGet().subscribe(usuarios => {
       const existeUsuario = usuarios.find(user => (user.usuario == this.loginGroup.controls['userCtrl'].value));
-      if (this.loginGroup.controls['userCtrl'].value === '' || this.loginGroup.controls['passwordCtrl'].value === '') {
+      if (this.loginGroup.controls['userCtrl'].hasError('required') || this.loginGroup.controls['passwordCtrl'].hasError('required')) {
         this.snackBarService.redSnackBar('Por favor, ingrese todos sus datos para iniciar sesion');
       }
       else if (existeUsuario) {
         if (usuarios.find(pass => pass.contra == this.loginGroup.controls['passwordCtrl'].value)) {
           existeUsuario.estado = true;
           console.log(existeUsuario.estado);
-          this.usuarioService.editarUsuarioPut(existeUsuario); //No jala cambiar el estado
-          this.snackBarService.greenSnackBar('Bienvenido al sistema Eris');
-          this.router.navigate(['mostrar-perfil']);
+          this.usuarioService.editarUsuarioPut(existeUsuario).subscribe(res => {
+            this.snackBarService.greenSnackBar('Bienvenido al sistema Eris');
+            this.router.navigate(['mostrar-perfil']);
+          });
         }
         else {
           this.snackBarService.redSnackBar('Contraseña incorrecta. Por favor introduzca correctamente su contraseña')

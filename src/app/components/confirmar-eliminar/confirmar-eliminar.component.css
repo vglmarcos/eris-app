@@ -1,8 +1,10 @@
 .main {
-    width: 400px;
-    height: 200px;
+    width: 300px;
+    height: 150px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    background-color: var(--secondary-color) !important;
 }
 
 .title-modal {
@@ -32,12 +34,4 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-}
-
-::ng-deep .dark-cyan-theme {
-    color: #fff !important;
-}
-
-.dark-cyan-theme {
-    color: #fff !important;
 }
