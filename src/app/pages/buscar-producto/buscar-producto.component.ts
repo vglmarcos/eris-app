@@ -104,6 +104,7 @@ export class BuscarProductoComponent implements OnInit {
     this.productoSelect = producto.id;
   }
 
+
   limpiarFiltros() {
     this.consultaFormGroup.controls['consultaCtrl'].setValue('');
     this.consultaFormGroup.controls['porCtrl'].setValue('Nombre');
@@ -323,4 +324,8 @@ export class BuscarProductoComponent implements OnInit {
   }
 
 
+}
+
+function open() {
+  console.log('hola');
 }

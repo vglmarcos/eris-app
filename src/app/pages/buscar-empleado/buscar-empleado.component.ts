@@ -4,6 +4,8 @@ import { UsuarioService } from 'src/app/api/usuario/usuario.service';
 import { IUsuario } from 'src/app/models/IUsuario';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SnackBarService } from 'src/app/servicios/snack-bar.service';
+import { ConfirmarEliminarComponent } from 'src/app/components/confirmar-eliminar/confirmar-eliminar.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-buscar-empleado',
@@ -41,7 +43,8 @@ export class BuscarEmpleadoComponent implements OnInit {
     private router: Router,
     private usuarioService: UsuarioService,
     private _formBuilder: FormBuilder,
-    public snackBarService: SnackBarService
+    public snackBarService: SnackBarService,
+    public dialog: MatDialog
   ) {
     this.consultaFormGroup = this._formBuilder.group({
       consultaCtrl: ['', Validators.required],
@@ -370,14 +373,26 @@ export class BuscarEmpleadoComponent implements OnInit {
     const usuarioSesion = this.usuariosTotales.find(usuario => usuario.estado);
     if (usuarioSesion.id === this.usuarioSelect) {
       this.snackBarService.redSnackBar('No se puede eliminar un usuario con sesión activa.');
-    } else {
+    }
+    else {
       const usuario = this.usuariosTotales.find(usuario => usuario.id === this.usuarioSelect);
-      this.usuarioService.eliminarUsuarioDelete(usuario).subscribe(res => {
-        this.snackBarService.greenSnackBar('Usuario eliminado con éxito.');
-        this.usuarioService.obtenerUsuariosGet().subscribe(usuarios => {
-          this.usuariosTotales = usuarios;
-          this.usuarios = this.usuariosTotales;
-        });
+      const dialogRef = this.dialog.open(ConfirmarEliminarComponent, {
+        data: '¿Realmente deseas eliminar este usuario?',
+        autoFocus: false
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        if (result.res) {
+          this.usuarioService.eliminarUsuarioDelete(usuario).subscribe(res => {
+            this.snackBarService.greenSnackBar('Usuario eliminado con éxito.');
+            this.usuarioService.obtenerUsuariosGet().subscribe(usuarios => {
+              this.usuariosTotales = usuarios;
+              this.usuarios = this.usuariosTotales;
+            });
+          });
+        } else {
+          this.snackBarService.redSnackBar('Eliminación de producto cancelada');
+          console.log(`Exit on click outside`);
+        }
       }, error => this.snackBarService.redSnackBar('Ha ocurrido un error al eliminar el usuario.'));
     }
   }

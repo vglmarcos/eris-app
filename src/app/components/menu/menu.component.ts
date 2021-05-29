@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class MenuComponent implements OnInit {
 
   public changeText = false;
+  public changeTextR = false;
 
   constructor(public router: Router) { }
 

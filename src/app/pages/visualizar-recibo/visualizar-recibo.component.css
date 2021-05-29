@@ -1,0 +1,132 @@
+.info-container{
+    width: 100%;
+    height: 100%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 2%;
+    border-radius: 10px 10px 10px 10px;
+    /* flex-direction: column;
+    display: flex;
+    justify-content: space-evenly; */
+    background-color: var(--font-color) !important;
+    display:grid;
+    grid-template-rows: 140px 130px 1fr 130px;
+    grid-template-columns: 300px 1fr 250px;
+    grid-template-areas: 
+    'logo empresa fecha'
+    'cliente cliente cliente'
+    'productos productos productos'
+    'totales totales totales';
+}
+
+p {
+    color: #000;
+    font-size: 1.4rem;
+}
+
+b {
+    color: #000;
+    font-size: 1.4rem;
+}
+
+.row-correo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between ;
+    padding-right: 35%;
+}
+
+.logo {
+    grid-area: logo;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+    padding-bottom: 10px;
+    background-color:darkblue !important;
+}
+
+.logo img {
+    padding-left: 40px;
+    width: 300px;
+}
+
+.datos-empresa {
+    grid-area: empresa;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: right;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: aqua;
+}
+
+.datos-empresa > p {
+    padding-left: 20px;
+    color: #000;
+    font-size: 1.4rem;
+}
+
+.datos-empresa b {
+    color: #000;
+}
+
+.fecha {
+    grid-area: fecha;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between ;
+    background-color: green;
+}
+
+.fecha  b {
+    color: #000;
+}
+
+.fecha > p {
+    color: #000;
+    font-size: 1.4rem;
+}
+
+.datos-cliente {
+    grid-area: cliente;
+    padding: 10px;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between ;
+    background-color: yellow;
+}
+
+.datos-cliente p {
+    color: #000;
+    font-size: 1.4rem;
+}
+
+.datos-cliente b {
+    color: #000;
+}
+
+.productos {
+    grid-area: productos;
+    background-color: red;
+}
+
+.totales {
+    grid-area: totales;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    flex-direction: column;
+    display: flex;
+    padding-left: 70%;
+    justify-content: space-between ;
+    background-color:blueviolet;
+}
+
+.totales p {
+    padding-right: 100px;
+    display: flex;
+    justify-content: space-between;
+}

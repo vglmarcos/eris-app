@@ -1,0 +1,59 @@
+<div class="title-container">
+    <p><b>Búsqueda de Recibos</b></p>
+</div>
+<div [formGroup]="consultaFormGroup" class="info-container">
+    <div class="row-container">
+        <p><b>Consulta</b></p>
+        <input formControlName="consultaCtrl" type="text" placeholder="" id="consulta" >
+        <p><b>por:</b></p>
+        <select class="por" name="por" id="" form="porCtrl">
+            <option value="Cliente">Cliente</option>
+            <option value="Empleados">Empleado</option>
+        </select>
+        <button (click)="buscarRecibos()">Buscar</button>
+    </div>
+    <div class="row-container">
+        <p><b>Ordenado por:</b></p>
+        <select class="ordenado" name="" id="" formControlName="tipoCtrl" >
+            <option value="ID">ID</option>
+            <option value="ID Cotización">ID Cotización</option>
+            <option value="Cliente">Cliente</option>
+            <option value="Empleado">Empleado</option>
+            <option value="Fecha">Fecha</option>
+        </select>
+        <select class="as-des" name="" id="" formControlName="ascDescCtrl" >
+            <option value="asc">Ascendente</option>
+            <option value="desc">Descendente</option>
+        </select>
+        <button (click)="limpiarFiltros()">Limpiar filtros</button>
+    </div>
+    <div class="tabla-reporte">
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col" class="border-radius-first">ID</th>
+                    <th scope="col">ID Cotización</th>
+                    <th scope="col">Cliente</th>
+                    <th scope="col">Empleado</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr [class]="(reciboSelect === recibo.id) ? 'recibo-seleccionado' : ''"
+                    (click)="seleccionarRecibo(recibo)" *ngFor="let recibo of recibos" >
+                    <th scope="row" class="center-text text-normal">{{recibo.id}}</th>
+                    <td class="center-text">{{recibo.id_cotizacion}}</td>
+                    <td class="center-text">{{obtenerNombreCliente(recibo.id_cotizacion)}}</td>
+                    <td class="center-text">{{obtenerNombreUsuario(recibo.id_cotizacion)}}</td>
+                    <td class="center-text">{{obtenerTotal(recibo.id_cotizacion)}}</td>
+                    <td class="center-text">{{recibo.createdAt | date: 'dd / MM / yyyy'}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row-container-btn">
+        <button [disabled]="!reciboSelect" [class]="!reciboSelect ? 'disabled-button' : ''"
+        (click)="onSubmitEliminar()">Eliminar</button>
+    </div>
+</div>
