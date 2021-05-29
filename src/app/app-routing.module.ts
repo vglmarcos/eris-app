@@ -14,6 +14,8 @@ import { ModificarPerfilComponent } from './pages/modificar-perfil/modificar-per
 import { VisualizarReporteComponent } from './pages/visualizar-reporte/visualizar-reporte.component';
 import { AgregarCotizacionComponent } from './pages/agregar-cotizacion/agregar-cotizacion.component';
 import { CarritoComponent } from './pages/carrito/carrito.component';
+import { EditarEmpleadoComponent } from './pages/editar-empleado/editar-empleado.component';
+import { AcercaDeComponent } from './pages/acerca-de/acerca-de.component';
 
 const routes: Routes = [
   {
@@ -67,6 +69,14 @@ const routes: Routes = [
   {
     path: 'agregar-cotizacion',
     component: AgregarCotizacionComponent
+  },
+  {
+    path: 'editar-empleado',
+    component: EditarEmpleadoComponent
+  },
+  {
+    path: 'acerca-de',
+    component: AcercaDeComponent
   },
   {
     path: 'carrito',

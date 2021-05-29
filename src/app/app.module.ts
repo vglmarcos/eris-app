@@ -33,6 +33,10 @@ import { ReciboService } from 'src/app/api/recibo/recibo.service';
 import { ReporteService } from 'src/app/api/reporte/reporte.service';
 import { UsuarioService } from 'src/app/api/usuario/usuario.service';
 
+import { EditarEmpleadoComponent } from 'src/app/pages/editar-empleado/editar-empleado.component';
+
+import { AcercaDeComponent } from 'src/app/pages/acerca-de/acerca-de.component';
+
 
 @NgModule({
   declarations: [
@@ -53,7 +57,9 @@ import { UsuarioService } from 'src/app/api/usuario/usuario.service';
     VisualizarReporteComponent,
     AgregarCotizacionComponent,
     CarritoComponent,
-    ConfirmarEliminarComponent
+    ConfirmarEliminarComponent,
+    EditarEmpleadoComponent,
+    AcercaDeComponent
   ],
   imports: [
     BrowserModule,

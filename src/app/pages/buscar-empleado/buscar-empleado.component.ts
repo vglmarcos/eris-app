@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/api/usuario/usuario.service';
 import { IUsuario } from 'src/app/models/IUsuario';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SnackBarService } from 'src/app/servicios/snack-bar.service';
 
 @Component({
   selector: 'app-buscar-empleado',
@@ -40,6 +41,7 @@ export class BuscarEmpleadoComponent implements OnInit {
     private router: Router,
     private usuarioService: UsuarioService,
     private _formBuilder: FormBuilder,
+    public snackBarService: SnackBarService
   ) {
     this.consultaFormGroup = this._formBuilder.group({
       consultaCtrl: ['', Validators.required],
@@ -98,7 +100,12 @@ export class BuscarEmpleadoComponent implements OnInit {
   }
 
   limpiarFiltros() {
-
+    this.consultaFormGroup.controls['consultaCtrl'].setValue('');
+    this.consultaFormGroup.controls['porCtrl'].setValue('Nombre');
+    this.consultaFormGroup.controls['tipoCtrl'].setValue('ID');
+    this.consultaFormGroup.controls['ascDescCtrl'].setValue('asc');
+    this.usuarioSelect = null;
+    this.buscarEmpleados();
   }
 
   buscarEmpleados() {
@@ -163,6 +170,85 @@ export class BuscarEmpleadoComponent implements OnInit {
           case 'Tipo':
             resultados = this.usuariosTotales.filter(usuarios => {
               return usuarios.nombre.toLowerCase().startsWith(String(this.filtros.consulta).toLowerCase());
+            });
+            resultadosOrdenados = resultados.sort((usuario1, usuario2) => {
+              if (usuario1.tipo > usuario2.tipo) {
+                return 1;
+              }
+              if (usuario1.tipo < usuario2.tipo) {
+                return -1;
+              }
+              // a must be equal to b
+              return 0;
+            });
+            if (this.filtros.orden === 'asc') {
+              this.resultadoFiltrado = resultadosOrdenados;
+            } else {
+              this.resultadoFiltrado = resultadosOrdenados.reverse();
+            }
+            break
+          default:
+            break
+        }
+        break;
+      case 'Usuario':
+        switch (this.filtros.ordenado) {
+          case 'ID':
+            resultados = this.usuariosTotales.filter(usuarios => {
+              return usuarios.usuario.toLowerCase().startsWith(String(this.filtros.consulta).toLowerCase());
+            });
+            resultadosOrdenados = resultados.sort((usuario1, usuario2) => {
+              return usuario1.id - usuario2.id;
+            });
+            if (this.filtros.orden === 'asc') {
+              this.resultadoFiltrado = resultadosOrdenados;
+            } else {
+              this.resultadoFiltrado = resultadosOrdenados.reverse();
+            }
+            break;
+          case 'Nombre':
+            resultados = this.usuariosTotales.filter(usuarios => {
+              return usuarios.usuario.toLowerCase().startsWith(String(this.filtros.consulta).toLowerCase());
+            });
+            resultadosOrdenados = resultados.sort((usuario1, usuario2) => {
+              if (usuario1.nombre > usuario2.nombre) {
+                return 1;
+              }
+              if (usuario1.nombre < usuario2.nombre) {
+                return -1;
+              }
+              // a must be equal to b
+              return 0;
+            });
+            if (this.filtros.orden === 'asc') {
+              this.resultadoFiltrado = resultadosOrdenados;
+            } else {
+              this.resultadoFiltrado = resultadosOrdenados.reverse();
+            }
+            break;
+          case 'Usuario':
+            resultados = this.usuariosTotales.filter(usuarios => {
+              return usuarios.usuario.toLowerCase().startsWith(String(this.filtros.consulta).toLowerCase());
+            });
+            resultadosOrdenados = resultados.sort((usuario1, usuario2) => {
+              if (usuario1.usuario > usuario2.usuario) {
+                return 1;
+              }
+              if (usuario1.usuario < usuario2.usuario) {
+                return -1;
+              }
+              // a must be equal to b
+              return 0;
+            });
+            if (this.filtros.orden === 'asc') {
+              this.resultadoFiltrado = resultadosOrdenados;
+            } else {
+              this.resultadoFiltrado = resultadosOrdenados.reverse();
+            }
+            break;
+          case 'Tipo':
+            resultados = this.usuariosTotales.filter(usuarios => {
+              return usuarios.usuario.toLowerCase().startsWith(String(this.filtros.consulta).toLowerCase());
             });
             resultadosOrdenados = resultados.sort((usuario1, usuario2) => {
               if (usuario1.tipo > usuario2.tipo) {
@@ -267,14 +353,37 @@ export class BuscarEmpleadoComponent implements OnInit {
         break;
     }
     this.usuarios = this.resultadoFiltrado;
+    if (this.usuarios.length === 0) {
+      this.snackBarService.redSnackBar('No se encontraron resultados.');
+    }
   }
 
   deseleccionar() {
     this.usuarioSelect = null;
   }
 
-  onSubmit() {
+  agregarEmpleado() {
     this.router.navigate(['agregar-empleado']);
+  }
+
+  eliminarEmpleado() {
+    const usuarioSesion = this.usuariosTotales.find(usuario => usuario.estado);
+    if (usuarioSesion.id === this.usuarioSelect) {
+      this.snackBarService.redSnackBar('No se puede eliminar un usuario con sesión activa.');
+    } else {
+      const usuario = this.usuariosTotales.find(usuario => usuario.id === this.usuarioSelect);
+      this.usuarioService.eliminarUsuarioDelete(usuario).subscribe(res => {
+        this.snackBarService.greenSnackBar('Usuario eliminado con éxito.');
+        this.usuarioService.obtenerUsuariosGet().subscribe(usuarios => {
+          this.usuariosTotales = usuarios;
+          this.usuarios = this.usuariosTotales;
+        });
+      }, error => this.snackBarService.redSnackBar('Ha ocurrido un error al eliminar el usuario.'));
+    }
+  }
+
+  modificarEmpleado() {
+    this.router.navigate(['editar-empleado'], { queryParams: { id: this.usuarioSelect } });
   }
 
 }

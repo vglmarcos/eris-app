@@ -8,6 +8,7 @@
         <p><b>por:</b></p>
         <select formControlName="porCtrl" class="por" name="por">
             <option value="Nombre">Nombre</option>
+            <option value="Usuario">Usuario</option>
             <option value="Tipo">Tipo</option>
         </select>
         <button (click)="buscarEmpleados()">Buscar</button>
@@ -53,8 +54,9 @@
     </div>
     <div class="row-container">
         <button [disabled]="!usuarioSelect" [class]="!usuarioSelect ? 'disabled-button' : ''"
-            (click)="onSubmit()">Eliminar</button>
-        <button (click)="onSubmit()">Modificar</button>
-        <button (click)="onSubmit()">Nuevo</button>
+            (click)="eliminarEmpleado()">Eliminar</button>
+        <button [disabled]="!usuarioSelect" [class]="!usuarioSelect ? 'disabled-button' : ''"
+            (click)="modificarEmpleado()">Modificar</button>
+        <button (click)="agregarEmpleado()">Agregar</button>
     </div>
 </div>

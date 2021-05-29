@@ -1,7 +1,7 @@
 <div class="title-container">
-    <p><b>Agregar un nuevo Empleado</b></p>
+    <p><b>Modificar Empleado</b></p>
 </div>
-<div [formGroup]="agregarFormGroup" class="info-container">
+<div [formGroup]="editarFormGroup" class="info-container">
     <div class="row-container">
         <p><b>Nombre:</b></p>
         <input formControlName="nombreCtrl" type="text">
@@ -48,6 +48,6 @@
     </div>
     <div class="row-container-btn">
         <button (click)="cancelar()">Cancelar</button>
-        <button (click)="guardar()">Guardar</button>
+        <button (click)="editar()">Editar</button>
     </div>
 </div>

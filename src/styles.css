@@ -67,6 +67,8 @@ app-generar-reporte,
 app-modificar-perfil,
 app-visualizar-reporte,
 app-agregar-cotizacion,
+app-editar-empleado,
+app-acerca-de-component,
 app-carrito {
     grid-area: main;
     background: var(--panel-color);
