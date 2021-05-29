@@ -32,7 +32,7 @@ import { ProductoService } from 'src/app/api/producto/producto.service';
 import { ReciboService } from 'src/app/api/recibo/recibo.service';
 import { ReporteService } from 'src/app/api/reporte/reporte.service';
 import { UsuarioService } from 'src/app/api/usuario/usuario.service';
-
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -66,7 +66,8 @@ import { UsuarioService } from 'src/app/api/usuario/usuario.service';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule
   ],
   providers: [
     SnackBarService,

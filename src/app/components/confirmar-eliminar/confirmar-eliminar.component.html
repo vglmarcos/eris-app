@@ -1,9 +1,9 @@
-<div [ngClass]='[actualTheme, "main"]'>
+<div [ngClass]='["mat-dialog-container", "main"]'>
     <div class="body-modal">
-      <p>Estás seguro que deseas eliminar: {{message}}</p>
+      <p>{{message}}</p>
       <div class="footer-modal">
-        <button mat-button color="warn" (click)="cancelar()">Cancelar</button>
-        <button mat-button color="primary" (click)="confirmar()">Confirmar</button>
+        <button mat-raised-button color="warn" (click)="cancelar()">Cancelar</button>
+        <button mat-raised-button color="primary" (click)="confirmar()">Confirmar</button>
       </div>
     </div>
   </div>
