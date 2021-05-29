@@ -17,11 +17,10 @@ export class BuscarReporteComponent implements OnInit {
   }
 
   onSubmit() {
-    this.router.navigate(['generar-reporte']);
+    
   }
 
   onSubmitVer() {
-    this.router.navigate(['visualizar-reporte']);
   }
   
 }
