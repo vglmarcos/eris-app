@@ -140,4 +140,16 @@ export class BuscarCotizacionComponent implements OnInit {
       });
     }, error => this.snackBarService.redSnackBar('Ha ocurrido un error al eliminar la cotización.'));
   }
+
+  onSubmit() {
+
+  }
+
+  onSubmitModificar() {
+
+  }
+
+  onSubmitNuevo() {
+    
+  }
 }
