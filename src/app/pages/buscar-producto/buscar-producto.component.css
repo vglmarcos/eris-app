@@ -100,7 +100,6 @@ button:hover {
     background-color: #50789c;
 }
 
-
 .tabla-producto {
     display: flex;
     margin-top: 10px;
@@ -160,6 +159,14 @@ tr:hover{
     cursor: pointer;
 }
 
+.tabla-producto table tbody tr:hover {
+    background-color: #50789c;
+}
+
+.producto-seleccionado {
+    background-color: var(--primary-color);
+}
+
 .text-normal {
     font-weight: 400;
 }
@@ -179,4 +186,13 @@ tr:hover{
   
 ::-ms-input-placeholder { /* Microsoft Edge */
     color: var(--stroke-color);
+}
+
+.disabled-button {
+    background: rgb(138, 138, 138);
+    cursor: default;
+}
+
+.disabled-button:hover {
+    background: rgb(138, 138, 138);
 }

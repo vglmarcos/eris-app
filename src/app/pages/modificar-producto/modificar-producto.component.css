@@ -95,6 +95,12 @@ button:hover {
     background-color: #50789c;
 }
 
+input.remove-flechitas::-webkit-outer-spin-button,
+input.remove-flechitas::-webkit-inner-spin-button {
+    display: none;
+}
+
+
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: var(--stroke-color);
 }

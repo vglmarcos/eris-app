@@ -1,30 +1,30 @@
 <div class="title-container">
     <p><b>Búsqueda de Productos</b></p>
 </div>
-<div class="info-container">
+<div [formGroup]="consultaFormGroup" class="info-container">
     <div class="row-container">
         <p><b>Consulta</b></p>
-        <input type="text" placeholder="">
+        <input formControlName="consultaCtrl" type="text" placeholder="" id="consulta">
         <p><b>por:</b></p>
-        <select class="por" name="por" id="">
-            <option value="1">Nombre</option>
-            <option value="2">Tipo</option>
+        <select class="por" name="por" formControlName="porCtrl">
+            <option value="Nombre">Nombre</option>
+            <option value="Tipo">Tipo</option>
         </select>
-        <button (click)="onSubmit()">Buscar</button>
+        <button (click)="buscarProductos()">Buscar</button>
     </div>
     <div class="row-container">
         <p><b>Ordenado por:</b></p>
-        <select class="ordenado" name="" id="">
-            <option value="1">ID</option>
-            <option value="2">Nombre</option>
-            <option value="3">Tipo</option>
-            <option value="4">Precio</option>
+        <select class="ordenado" name="" id="" formControlName="tipoCtrl">
+            <option value="ID">ID</option>
+            <option value="Nombre">Nombre</option>
+            <option value="Tipo">Tipo</option>
+            <option value="Precio">Precio</option>
         </select>
-        <select class="as-des" name="" id="">
-            <option value="1">Ascendente</option>
-            <option value="2">Descendente</option>
+        <select class="as-des" name="" id="" formControlName="ascDescCtrl" >
+            <option value="asc">Ascendente</option>
+            <option value="desc">Descendente</option>
         </select>
-        <button (click)="onSubmit()">Limpiar filtros</button>
+        <button (click)="limpiarFiltros()">Limpiar filtros</button>
     </div>
     <div class="tabla-producto">
         <table>
@@ -33,13 +33,14 @@
                     <th scope="col" class="border-radius-first">ID</th>
                     <th scope="col">Nombre del Producto</th>
                     <th scope="col">Tipo</th>
-                    <th scope="col">Precio</th>
+                    <th scope="col" class="border-radius-last">Precio</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let producto of this.productos">
+                <tr [class]="(productoSelect === producto.id) ? 'producto-seleccionado' : ''"
+                    (click)="seleccionarProducto(producto)" *ngFor="let producto of this.productos">
                     <th scope="row" class="center-text text-normal">{{producto.id}}</th>
-                    <td>{{producto.nombre_producto}}</td>
+                    <td>{{producto.nombre}}</td>
                     <td class="center-text">{{producto.tipo}}</td>
                     <td class="center-text">{{producto.precio}}</td>
                 </tr>
@@ -47,8 +48,10 @@
         </table>
     </div>
     <div class="row-container">
-        <button (click)="onSubmit()">Eliminar</button>
-        <button (click)="onSubmitModificar()">Modificar</button>
+        <button [disabled]="!productoSelect" [class]="!productoSelect ? 'disabled-button' : ''"
+        (click)="onSubmitEliminar(productoSelect)">Eliminar</button>
+        <button [disabled]="!productoSelect" [class]="!productoSelect ? 'disabled-button' : ''"
+        (click)="onSubmitModificar(productoSelect)">Modificar</button>
         <button (click)="onSubmitNuevo()">Nuevo</button>
     </div>
 </div>

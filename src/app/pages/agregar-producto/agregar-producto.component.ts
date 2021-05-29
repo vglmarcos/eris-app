@@ -59,7 +59,7 @@ export class AgregarProductoComponent implements OnInit {
         }
         console.log(this.producto);
         this.productoService.agregarProductoPost(this.producto).subscribe(res => {
-          this.snackBarService.greenSnackBar('Se ha agregado correctamente el producto');
+          this.snackBarService.greenSnackBar('Alta de producto exitosa');
           this.router.navigate(['buscar-producto']);
         });
       }
