@@ -22,20 +22,26 @@
         <p>Productos</p>
     </div>
 </a>
-<a [routerLink]="['/buscar-reporte']">
-    <div class="reportes" [ngClass]="isActive(['/buscar-reporte', '/generar-reporte', '/visualizar-reporte'])">
+<a (mouseover)="changeTextR=true" (mouseout)="changeTextR=false">
+    <div *ngIf="!changeTextR; else elseBlockR" class="reportes" [ngClass]="isActive(['/buscar-reporte', '/generar-reporte', '/visualizar-reporte'])">
         <img src="assets/img/reportes.png" alt="Reportes">
         <p>Reportes</p>
     </div>
+    <ng-template #elseBlockR>
+        <div class="submenu-reportes">
+            <a [routerLink]="['/buscar-reporte']">Buscar Reportes</a>
+            <a [routerLink]="['/generarr-reporte']">Generar Reporte</a>
+        </div>
+    </ng-template>
 </a>
-<a [routerLink]="['/404']">
-    <div class="recibos" [routerLinkActive]="['active-page']">
+<a [routerLink]="['/buscar-recibo']">
+    <div class="recibos" [ngClass]="isActive(['/buscar-recibo', '/visualizar-recibo'])">
         <img src="assets/img/recibos.png" alt="Recibos">
         <p>Recibos</p>
     </div>
 </a>
 <a [routerLink]="['/buscar-empleado']">
-    <div class="empleados" [ngClass]="isActive(['/buscar-empleado', '/agregar-empleado', 'modificar-empleado'])">
+    <div class="empleados" [ngClass]="isActive(['/buscar-empleado', '/agregar-empleado', '/editar-empleado'])">
         <img src="assets/img/empleados.png" alt="Empleados">
         <p>Empleados</p>
     </div>

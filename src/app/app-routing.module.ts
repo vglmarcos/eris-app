@@ -16,6 +16,8 @@ import { AgregarCotizacionComponent } from './pages/agregar-cotizacion/agregar-c
 import { CarritoComponent } from './pages/carrito/carrito.component';
 import { EditarEmpleadoComponent } from './pages/editar-empleado/editar-empleado.component';
 import { AcercaDeComponent } from './pages/acerca-de/acerca-de.component';
+import { BuscarReciboComponent } from './pages/buscar-recibo/buscar-recibo.component';
+import { VisualizarReciboComponent } from './pages/visualizar-recibo/visualizar-recibo.component';
 
 const routes: Routes = [
   {
@@ -81,6 +83,14 @@ const routes: Routes = [
   {
     path: 'carrito',
     component: CarritoComponent
+  },
+  {
+    path: 'buscar-recibo',
+    component: BuscarReciboComponent
+  },
+  {
+    path: 'visualizar-recibo',
+    component: VisualizarReciboComponent
   },
   {
     path: '',

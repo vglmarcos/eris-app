@@ -69,6 +69,8 @@ app-visualizar-reporte,
 app-agregar-cotizacion,
 app-editar-empleado,
 app-acerca-de-component,
+app-buscar-recibo,
+app-visualizar-recibo,
 app-carrito {
     grid-area: main;
     background: var(--panel-color);

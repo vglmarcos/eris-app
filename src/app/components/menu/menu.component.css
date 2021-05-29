@@ -109,3 +109,24 @@
 .submenu-cotizacion a:hover {
     background: var(--panel-color);
 }
+
+.submenu-reportes {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.submenu-reportes a {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--secondary-color);
+}
+
+.submenu-reportes a:hover {
+    background: var(--panel-color);
+}

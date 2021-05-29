@@ -34,6 +34,8 @@ import { UsuarioService } from 'src/app/api/usuario/usuario.service';
 import { EditarEmpleadoComponent } from 'src/app/pages/editar-empleado/editar-empleado.component';
 import { AcercaDeComponent } from 'src/app/pages/acerca-de/acerca-de.component';
 import { MatButtonModule } from '@angular/material/button';
+import { BuscarReciboComponent } from './pages/buscar-recibo/buscar-recibo.component';
+import { VisualizarReciboComponent } from './pages/visualizar-recibo/visualizar-recibo.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,9 @@ import { MatButtonModule } from '@angular/material/button';
     CarritoComponent,
     ConfirmarEliminarComponent,
     EditarEmpleadoComponent,
-    AcercaDeComponent
+    AcercaDeComponent,
+    BuscarReciboComponent,
+    VisualizarReciboComponent
   ],
   imports: [
     BrowserModule,
